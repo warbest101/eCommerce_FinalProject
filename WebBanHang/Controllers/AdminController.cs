@@ -17,6 +17,7 @@ namespace WebBanHang.Controllers
     public class AdminController : Controller
     {
         private readonly MyDBContext _context;
+
         private readonly string admin = "admin";
 
         public AdminController(MyDBContext context)
