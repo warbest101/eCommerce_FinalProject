@@ -1,0 +1,60 @@
+﻿@model WebBanHang.Models.Contact
+
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/Layout_Sanpham.cshtml";
+}
+
+
+
+<div id="page-content" class="single-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a asp-action="Index">Trang chủ</a></li>
+                    <li><a>Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading"><h1>LIÊN HỆ CHÚNG TÔI</h1></div>
+            </div>
+            <div class="col-md-6" style="margin-bottom: 30px;">
+                <form asp-action="Contact">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                       
+                        <input placeholder="Your Name *" asp-for="Name" class="form-control" required data-validation-required-message="Please enter your name." />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                       
+                        <input asp-for="Email" placeholder="Your Email *" class="form-control" required data-validation-required-message="Please enter your email address."/>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        
+                        <input placeholder="Your Phone *" asp-for="Phone" class="form-control" required data-validation-required-message="Please enter your phone number."/>
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      
+                        <textarea class="form-control" placeholder="Your Message *"  asp-for="NoiDung" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                        <span asp-validation-for="NoiDung" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Send Messenge" class="btn btn-1" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <p><span class="glyphicon glyphicon-home"></span> 280 An Duong Vuong , Ho Chi Minh, Viet Nam</p>
+                <p><span class="glyphicon glyphicon-earphone"></span> +84 000000000</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> info@yourdomain.com</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.6511791676458!2d106.68001421480064!3d10.761343692331765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1b888ab357%3A0xc469f6e800231314!2zMjgwIEFuIETGsMahbmcgVsawxqFuZywgUGjGsOG7nW5nIDQsIFF14bqtbiA1LCBI4buTIENow60gTWluaA!5e0!3m2!1svi!2s!4v1545304277888" width="600" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>

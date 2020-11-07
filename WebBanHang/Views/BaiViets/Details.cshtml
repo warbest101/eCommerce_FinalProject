@@ -1,0 +1,44 @@
+﻿@model WebBanHang.Models.BaiViet
+
+@{
+    ViewData["Title"] = "Details";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/Components/_AdminPage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BaiViet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TieuDe)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TieuDe)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hinh)
+        </dt>
+        <dd>
+            <img src="~/Hinh/@Model.Hinh" width="200" height="100" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaLoai)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaLoai)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

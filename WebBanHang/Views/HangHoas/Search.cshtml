@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Search";
+}
+<h3><a asp-action="TimKiem" asp-controller="HangHoas">Tìm kiếm nâng cao</a></h3>
+<h2>Tìm kiếm hàng hóa</h2>
+
+
+
+<input type="text" id="txtSearch" placeholder="Input here.." />
+<div id="result"></div>
+
+@section Scripts{
+    <script>
+        //gắn hàm xử lý cho sự kiện nhấn phím trên textbox
+        $("#txtSearch").keyup(function () {
+            $.ajax({
+                url: "/HangHoas/Search",
+                type: "POST",
+                data: { "Keyword": $(this).val() },
+                success: function (data) {
+                    $("#result").html(data);
+                }
+            });
+        });
+    </script>
+}
+    <script>
+        $("#btnTim").click(function () {
+            var ten = $("#txtTen").val().trim();
+            var giaTu = $("#txtGiaTu").val();
+            var giaDen = $("#txtGiaDen").val();
+            $.ajax({
+                url: "/HangHoas/JSONSearch",
+                type: "GET",
+                data: {
+                    "Name": ten, "From": giaTu, "To": giaDen
+                },
+                success: function (data) {
+                    //console.log(data);
+                    $("#content").html("");
+                    //duyệt qua từng phần tử của tập kết quả
+                    $(data).each(function (index, value) {
+                        //tạo thẻ tr
+                        var tr = $("<tr />");
+                        //tạo nội dung cho thẻ tr
+                        $("<td/>").html(index + 1).appendTo(tr);
+                        $("<td/>").html(value.TenHH).appendTo(tr);
+                        $("<td/>").html(value.DonGia).appendTo(tr);
+                        $("<td/>").html(value.Loai).appendTo(tr);
+                        //thêm vào tbody
+                        tr.appendTo("#content");
+                    });
+                }
+            });
+        });
+    </script>

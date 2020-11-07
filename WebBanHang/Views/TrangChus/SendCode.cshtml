@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Send Code";
+    Layout = "~/Views/Shared/Layout_3.cshtml";
+}
+
+<div id="page-content" class="single-page">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="heading"><h2>Send Verification Code</h2></div>
+                <form asp-action="SendCode" method="post">
+                    <div class="form-group">
+                        <input type="submit" value="Send" class="btn btn-default" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

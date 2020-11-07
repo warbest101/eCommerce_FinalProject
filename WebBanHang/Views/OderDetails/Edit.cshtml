@@ -1,0 +1,48 @@
+﻿@model WebBanHang.Models.OderDetail
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/Components/_AdminPage.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>OderDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="OderID" />
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gia" class="control-label"></label>
+                <input asp-for="Gia" class="form-control" />
+                <span asp-validation-for="Gia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaHH" class="control-label"></label>
+                <input asp-for="MaHH" class="form-control" />
+                <span asp-validation-for="MaHH" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OderID" class="control-label"></label>
+                <input asp-for="OderID" class="form-control" />
+                <span asp-validation-for="OderID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

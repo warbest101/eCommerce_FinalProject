@@ -1,0 +1,104 @@
+﻿@model WebBanHang.Models.BaiViet
+@{
+    ViewData["Title"] = "XemBaiViet";
+    Layout = "~/Views/Shared/Layout_Sanpham.cshtml";
+}
+
+
+
+<div id="page-content" class="single-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a asp-action="Index">Trang chủ</a></li>
+                    <li><a asp-action="showbaiviet">Tin tức</a></li>
+                    <li><a href="#">Xem bài viết</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div id="main-content" class="col-md-8">
+                <div class="product">
+                    <div class="col-md-6">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="caption">
+                            <div class="image">
+                                <img src="~/Hinh/@Html.DisplayFor(modelItem => Model.Hinh)">
+                            </div>
+                            <div class="name"><h3>@Html.DisplayFor(modelItem => Model.TieuDe)</h3></div>
+                            <div class="info">
+                                <ul>
+
+                                    <li> @Html.DisplayFor(modelItem => Model.NoiDung)</li>
+                                </ul>
+                            </div>
+
+
+                            <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
+                            <div class="share well">
+                                <strong style="margin-right: 13px;">Share :</strong>
+                                <a href="#" class="share-btn" target="_blank">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <script>
+                                    function fbs_click() {
+                                        u = location.href; t = document.title; window.open('http://www.facebook.com/sharer.php?u=' + encodeURIComponent(u) + '&t=' + encodeURIComponent(t), 'sharer', 'toolbar=0,status=0,width=626,height=436');
+                                        return false;
+                                    }
+                                </script>
+                                <a href="http://www.facebook.com/share.php?u=<url>" onclick="return fbs_click()" class="share-btn" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#" class="share-btn" target="_blank">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="product-desc">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#description">Description</a></li>
+                        <li><a href="#review">Review</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="description" class="tab-pane fade in active">
+                         
+                        </div>
+                        <div id="review" class="tab-pane fade">
+                            <div class="review-text">
+                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+                            <div class="review-form">
+                                <h4>Write a review</h4>
+                                <form name="form1" id="ff" method="post" action="review.php">
+                                    <label>
+                                        <span>Enter your name:</span>
+                                        <input type="text" name="name" id="name" required>
+                                    </label>
+                                    <label>
+                                        <span>Your message here:</span>
+                                        <textarea name="message" id="message"></textarea>
+                                    </label>
+                                    <div class="text-right">
+                                        <input class="btn btn-default" type="reset" name="reset" value="Reset">
+                                        <input class="btn btn-default" type="submit" name="Submit" value="Submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+         
+                
+               
+             
+            </div>
+        </div>
+    </div>
+</div>	

@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "TimKiem";
+    Layout = "~/Views/Shared/Layout_Sanpham.cshtml";
+}
+
+<h2>Tìm Kiếm Nâng Cao</h2>
+
+<input type="text" id="txtTen" placeholder="Nhập tên" /><br />
+Giá từ <input type="number" min="0" id="txtGiaTu" />
+đến <input type="number" min="0" id="txtGiaDen" />
+    <input type="button" id="btnTim" value="Tìm" />
+<h2>Kết quả</h2>
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên hàng hóa</th>
+            <th>Đơn giá</th>
+            <th>Loại</th>
+        </tr>
+    </thead>
+    <tbody id="content"></tbody>
+</table>
+@section Scripts{
+    <script>
+        $("#btnTim").click(function () {
+            var ten = $("#txtTen").val().trim();
+            var giaTu = $("#txtGiaTu").val();
+            var giaDen = $("#txtGiaDen").val();
+            $.ajax({
+                url: "/TrangChus/JSONSearch",
+                type: "GET",
+                data: {
+                    "Name": ten, "From": giaTu, "To": giaDen
+                },
+                success: function (data) {
+                    //console.log(data);
+                    $("#content").html("");
+                    //duyệt qua từng phần tử của tập kết quả
+                    $(data).each(function (index, value) {
+                        //tạo thẻ tr
+                        var tr = $("<tr />");
+                        //tạo nội dung cho thẻ tr
+                        $("<td/>").html(index + 1).appendTo(tr);
+                        $("<td/>").html(value.tenHH).appendTo(tr);
+                       
+                        $("<td/>").html(value.donGia + "đ").appendTo(tr);
+                        $("<td/>").html(value.loai).appendTo(tr);
+                        //thêm vào tbody
+                        tr.appendTo("#content");
+                    });
+                }
+            });
+        });
+    </script>
+    }

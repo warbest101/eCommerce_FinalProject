@@ -1,0 +1,30 @@
+﻿@model IEnumerable<WebBanHang.Models.BaiViet>
+@{
+    ViewData["Title"] = "showbaiviet";
+    Layout = "~/Views/Shared/Layout_Sanpham.cshtml";
+}
+
+
+<div id="page-content" class="home-page">
+    <div class="container">
+        <div class="widget wid-categories">
+            <div class="heading"><h4>TIN TỨC LIÊN QUAN</h4></div>
+            <div class="content">
+                <ul>
+
+                    @foreach (var item in Model)
+                    {
+
+
+                        <li> <a asp-action="XemBaiViet" asp-route-id=" @item.ID" asp-route-id2=" @item.MaLoai">  @item.TieuDe</a></li>
+
+
+
+                    }
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>

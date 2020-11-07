@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WebBanHang.Models.HangHoa>
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/Layout_Sanpham.cshtml";
+}
+
+
+
+<h3><a asp-action="TimKiem" asp-controller="TrangChus">Tìm kiếm nâng cao</a></h3>
+<h2>Search</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên Sản Phẩm
+            </th>
+            <th>
+               Ảnh
+            </th>
+           
+            <th>
+               Giá
+            </th>
+           
+            <th>
+              Loại Sản Phẩm
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenHH)
+                </td>
+                <td>
+                    <img src="~/Hinh/@item.Hinh" width="50" height="50" />
+                </td>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonGia)đ
+                </td>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.Loai.TenLoai)
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>

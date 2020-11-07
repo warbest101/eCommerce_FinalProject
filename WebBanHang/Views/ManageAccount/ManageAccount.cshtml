@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Manage your account";
+    Layout = "~/Views/Shared/Layout_3.cshtml";
+}
+@model WebBanHang.Models.AppUser
+
+<div id="page-content" class="single-page">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="heading"><h2>Manage your account</h2></div>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dd>
+                    <dt>
+                        Password:
+                    </dt>
+                    <dd>
+                        <a asp-controller="ManageAccount" asp-action="ChangePassword" class="btn-link btn-bracketed">[Change]</a>
+                    </dd>
+                    <dt>
+                        Phone Number:
+                    </dt>
+                    <dd>
+                        @(Model.PhoneNumber ?? "None")
+                        @if (Model.PhoneNumber != null)
+                        {
+                            <br />
+                            <a asp-controller="ManageAccount" asp-action="AddPhoneNumber" class="btn-link btn-bracketed">Change</a>
+                            <form asp-controller="ManageAccount" asp-action="RemovePhoneNumber" method="post">
+                                [<button type="submit" class="btn-link">Remove</button>]
+                            </form>
+                        }
+                        else
+                        {
+                            <a asp-controller="ManageAccount" asp-action="AddPhoneNumber" class="btn-link btn-bracketed">[ Add ]</a>
+                        }
+                    </dd>
+                    <dt>
+                        Two-Factor Authentication:
+                    </dt>
+                    <dd>
+                        @if (Model.TwoFactorEnabled)
+                        {
+                            <form asp-controller="ManageAccount" asp-action="DisableTwoFactorAuthentication" method="post" class="form-horizontal">
+                                Enabled <button type="submit" class="btn-link btn-bracketed">Disable</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form asp-controller="ManageAccount" asp-action="EnableTwoFactorAuthentication" method="post" class="form-horizontal">
+                                <button type="submit" class="btn-link btn-bracketed">Enable</button> Disabled
+                            </form>
+                        }
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebBanHang.Models.HangHoa>
+@{
+    ViewData["Title"] = "_SearchPartial";
+}
+
+<h2>_SearchPartial</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenHH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoTa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Loai)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenHH)
+                </td>
+                <td>
+                    <img src="~/Hinh/@item.Hinh" width="50" height="50" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoTa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonGia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Loai.TenLoai)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MaHH">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.MaHH">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MaHH">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

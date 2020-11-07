@@ -1,0 +1,62 @@
+﻿@model WebBanHang.Models.Oder
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Components/_AdminPage.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Oder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShipName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipMobile)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShipMobile)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShipAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShipEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

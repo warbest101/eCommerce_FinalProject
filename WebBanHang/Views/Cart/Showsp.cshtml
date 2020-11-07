@@ -1,0 +1,49 @@
+﻿
+@model IEnumerable<WebBanHang.Models.HangHoa>
+
+@{
+    ViewData["Title"] = "Showsp";
+    Layout = "~/Views/Shared/Layout_Sanpham.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading"><h2>DANH SÁCH SẢN PHẨM </h2></div>
+                <div class="products">
+
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="product">
+                                <div class="image">
+                                    <a asp-action="Details" asp-route-id="@item.MaHH" asp-route-id2="@item.MaLoai"> <img src="~/Hinh/@item.Hinh" width="200" height="200" /></a>
+                                </div>
+
+
+                                <div class="buttons">
+                                    <a class="btn cart" asp-action="buy" asp-controller="cart" asp-route-id="@item.MaHH"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                                    <a class="btn wishlist" href="#"><span class="glyphicon glyphicon-heart"></span></a>
+                                    <a class="btn compare" href="#"><span class="glyphicon glyphicon-transfer"></span></a>
+                                </div>
+                                <div class="caption">
+                                    <div class="name"><h3><a>  @Html.DisplayFor(modelItem => item.TenHH)</a></h3></div>
+                                    <div class="price">$@Html.DisplayFor(modelItem => item.DonGia)<span>@Html.DisplayFor(modelItem => item.GiamGia)%</span></div>
+                                    <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+

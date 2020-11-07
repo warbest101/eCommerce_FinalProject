@@ -1,0 +1,238 @@
+﻿@model WebBanHang.Models.HangHoa
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Layout_Sanpham.cshtml";
+}
+
+
+<div id="page-content" class="single-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a asp-action="Index">Trang chủ</a></li>
+                    <li><a href="#">Loại</a></li>
+                    <li><a href="#">@Html.DisplayFor(modelItem => Model.Loai.TenLoai)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div id="main-content" class="col-md-8">
+                <div class="product">
+                    <div class="col-md-6">
+                        <div class="image">
+                            <img src="~/Hinh/@Model.Hinh" width="300" height="300" /></a>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="caption">
+                            <div class="name"><h3>@Html.DisplayFor(modelItem => Model.TenHH)</h3></div>
+                            <div class="info">
+                                <ul>
+                                    <li>Thương hiệu: @Html.DisplayFor(modelItem => Model.Loai.TenLoai)</li>
+                                    <li>ID: @Html.DisplayFor(modelItem => Model.MaHH)</li>
+                                </ul>
+                            </div>
+                            <div class="price">@Html.DisplayFor(modelItem => Model.DonGia) đ<span>@Html.DisplayFor(modelItem => Model.GiamGia)%</span></div>
+                            <div class="options">
+                                TÙY CHỌN CÓ SẴN
+                                <select>
+                                    <option value="" selected>----Vui lòng chọn----</option>
+                                    <option value="red">Đỏ</option>
+                                    <option value="black">Đen</option>
+                                </select>
+                            </div>
+                            <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
+                            <div class="well">
+                                <label>Số lượng: </label> 
+                                <form asp-action="buydetail" asp-controller="cart">
+                                    <input class="form-inline quantity" name="soluong" type="number" value="1">
+                                    <button type="submit" class="btn btn-2">ADD</button>
+                                </form>
+                            </div>
+                            <div class="share well">
+                                <strong style="margin-right: 13px;">Share :</strong>
+                                <a href="#" class="share-btn" target="_blank">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <script>
+                                    function fbs_click() {
+                                        u = location.href; t = document.title; window.open('http://www.facebook.com/sharer.php?u=' + encodeURIComponent(u) + '&t=' + encodeURIComponent(t), 'sharer', 'toolbar=0,status=0,width=626,height=436');
+                                        return false;
+                                    }
+                                </script>
+                                <a href="http://www.facebook.com/share.php?u=<url>" onclick="return fbs_click()" class="share-btn"  target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+
+                                <a href="#" class="share-btn" target="_blank">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="product-desc">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#description">Mô tả</a></li>
+                        <li><a href="#review">Đánh giá</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="description" class="tab-pane fade in active">
+                            <h4>@Html.DisplayFor(modelItem => Model.TenHH)</h4>
+                            <p>@Html.DisplayFor(modelItem => Model.MoTa)</p>
+                        </div>
+                        <div id="review" class="tab-pane fade">
+                            <div class="review-text">
+                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+                            <div class="review-form">
+                                <h4>Write a review</h4>
+                                <form name="form1" id="ff" method="post" action="review.php">
+                                    <label>
+                                        <span>Enter your name:</span>
+                                        <input type="text" name="name" id="name" required>
+                                    </label>
+                                    <label>
+                                        <span>Your message here:</span>
+                                        <textarea name="message" id="message"></textarea>
+                                    </label>
+                                    <div class="text-right">
+                                        <input class="btn btn-default" type="reset" name="reset" value="Reset">
+                                        <input class="btn btn-default" type="submit" name="Submit" value="Submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-related">
+                    <div class="heading"><h2>SẢN PHẨM LIÊN QUAN</h2></div>
+                    <div class="products">
+                        @foreach (var item in ViewBag.loai2s)
+                        {
+                            <div class="col-lg-4 col-md-4 col-xs-12">
+                                <div class="product">
+                                    <div class="image">
+                                        <a asp-action="Details" asp-route-id="@item.MaHH" asp-route-id2="@item.MaLoai"> <img src="~/Hinh/@item.Hinh" width="200" height="200" /></a>
+                                    </div>
+
+
+                                    <div class="buttons">
+                                        <a class="btn cart" asp-action="buy" asp-controller="cart" asp-route-id="@item.MaHH"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                                        <a class="btn wishlist" href="#"><span class="glyphicon glyphicon-heart"></span></a>
+                                        <a class="btn compare" href="#"><span class="glyphicon glyphicon-transfer"></span></a>
+                                    </div>
+                                    <div class="caption">
+                                        <div class="name"><h3><a>@item.TenHH</a></h3></div>
+                                        <div class="price">@item.DonGia đ<span>@Html.DisplayFor(modelItem => Model.GiamGia)%</span></div>
+                                        <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        
+
+                    </div>
+                    
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+           
+
+
+            <div id="sidebar" class="col-md-4">
+                <div class="widget wid-categories">
+                    <div class="heading"><h4>LOẠI</h4></div>
+                    <div class="content">
+                        <ul>
+                           
+                                @foreach (var item in ViewBag.model)
+                                {
+
+
+                            <li> <a asp-action="Showsp" asp-route-id="@item.MaLoai"> @item.TenLoai</a></li>
+
+
+
+                                }
+                           
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget wid-categories">
+                    <div class="heading"><h4>TIN TỨC LIÊN QUAN</h4></div>
+                    <div class="content">
+                        <ul>
+
+                            @foreach (var item in ViewBag.loai4s)
+                            {
+
+
+                                <li> <a asp-action="XemBaiViet" asp-route-id="@item.ID" asp-route-id2="@item.MaLoai"> @item.TieuDe</a></li>
+
+
+
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget wid-discouts">
+                    <div class="heading"><h4>GIẢM GIÁ</h4></div>
+                    <div class="content">
+                        <label class="checkbox"><input type="checkbox" name="discount" checked="">Trên 10% (20)</label>
+                        <label class="checkbox"><input type="checkbox" name="discount">40% - 50% (5)</label>
+                        <label class="checkbox"><input type="checkbox" name="discount">30% - 20% (7)</label>
+                        <label class="checkbox"><input type="checkbox" name="discount">10% - 5% (2)</label>
+                        <label class="checkbox"><input type="checkbox" name="discount">Khác(50)</label>
+                    </div>
+                </div>
+                <div class="widget wid-brand">
+                    <div class="heading"><h4>THƯƠNG HIỆU</h4></div>
+                    <div class="content">
+                        <label class="checkbox"><input type="checkbox" name="brand">Apple</label>
+                        <label class="checkbox"><input type="checkbox" name="brand">Dell</label>
+                        <label class="checkbox"><input type="checkbox" name="brand">Asus</label>
+                        <label class="checkbox"><input type="checkbox" name="brand">Lenovo</label>
+                        <label class="checkbox"><input type="checkbox" name="brand">HP</label>
+                        <label class="checkbox"><input type="checkbox" name="brand">MSI</label>
+                        <label class="checkbox"><input type="checkbox" name="brand">Acer</label>
+                    </div>
+                </div>
+                <div class="widget wid-product">
+                    <div class="heading"><h4>SẢN PHẨM CŨ</h4></div>
+                    <div class="content">
+                        <div class="product">
+                            @foreach (var item in ViewBag.loai3s)
+                            {
+
+                                <div class="image">
+                                    <a asp-action="Details" asp-route-id="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="150" height="150" /></a>
+                                </div>
+
+
+                                <div class="buttons">
+                                    <a class="btn cart" asp-action="buy" asp-controller="cart" asp-route-id="@item.MaHH"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                                    <a class="btn wishlist" href="#"><span class="glyphicon glyphicon-heart"></span></a>
+                                    <a class="btn compare" href="#"><span class="glyphicon glyphicon-transfer"></span></a>
+                                </div>
+                                <div class="caption">
+                                    <div class="name"><h3><a>@item.TenHH</a></h3></div>
+                                    <div class="price">@item.DonGia đ<span>@item.GiamGia%</span></div>
+                                    <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
+                                </div>
+                            }
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	

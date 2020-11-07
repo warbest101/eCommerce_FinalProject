@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebBanHang.Models.TaiKhoan>
+@{
+    ViewData["Title"] = "Taikhoan";
+    Layout = "~/Views/Shared/Components/_AdminPage.cshtml";
+}
+
+<h2>Taikhoan</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               ten
+            </th>
+            <th>mat khau</th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDangNhap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
