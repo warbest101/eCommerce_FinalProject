@@ -23,6 +23,7 @@ namespace WebBanHang.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly MyDBContext _context;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
@@ -31,12 +32,14 @@ namespace WebBanHang.Controllers
             MyDBContext context,
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
+            RoleManager<IdentityRole> roleManager,
             IEmailSender emailSender, 
             ISmsSender smsSender)
         {
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
             _emailSender = emailSender;
             _smsSender = smsSender;
         }
@@ -332,11 +335,15 @@ namespace WebBanHang.Controllers
 
             if (ModelState.IsValid)
             {
+
+
                 var _user = new AppUser { UserName = user.UserName, Email = user.Email, Password = user.Password };
                 var result = await _userManager.CreateAsync(_user, user.Password);
 
                 if (result.Succeeded)
                 {
+
+
                     await _signInManager.SignInAsync(_user, isPersistent: false);
                     return RedirectToAction(nameof(Index));
                 }
@@ -416,5 +423,38 @@ namespace WebBanHang.Controllers
             }
             return View();
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> VerifyCode(VerifyCodeViewModel model)
+        {
+            var modelLoai = _context.loais.ToList();
+            ViewBag.model = modelLoai;
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var result = await _signInManager.TwoFactorSignInAsync("Phone", model.Code, isPersistent:false, rememberClient:false);
+            if (result.Succeeded)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            if (result.IsLockedOut)
+            {
+                ModelState.AddModelError(string.Empty, "User account locked out.");
+                return View(model.Code);
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid code.");
+                return View(model.Code);
+            }
+        }
+
+
     }
 }

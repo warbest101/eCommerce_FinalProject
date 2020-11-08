@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,10 +10,11 @@ using WebBanHang.Models;
 
 namespace WebBanHang.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class OdersController : Controller
     {
         private readonly MyDBContext _context;
-        private readonly string admin = "admin";
+        private readonly string admin = "Admin";
 
         public OdersController(MyDBContext context)
         {

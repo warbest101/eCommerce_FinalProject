@@ -3,6 +3,8 @@
     Layout = "~/Views/Shared/Layout_3.cshtml";
 }
 
+@model WebBanHang.ViewModels.VerifyCodeViewModel
+
 
 <div id="page-content" class="single-page">
     <div class="container">
@@ -15,9 +17,9 @@
                         <label class="control-label">A Code has been send. Please type in to complete Login Authentication</label>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Code</label>
-                        <input class="form-control" required/>
-                        <span class="textdanger"></span>
+                        <label asp-for="Code" class="control-label">Code</label>
+                        <input asp-for="Code" class="form-control"/>
+                        <span asp-validation-for="Code" class="textdanger"></span>
                     </div>
                     <div asp-validation-summary="ModelOnly" class="textdanger"></div>
                     <div class="form-group">

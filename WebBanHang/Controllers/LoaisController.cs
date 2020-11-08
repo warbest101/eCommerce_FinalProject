@@ -10,11 +10,11 @@ using WebBanHang.Models;
 
 namespace WebBanHang.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class LoaisController : Controller
     {
         private readonly MyDBContext _context;
-        private readonly string admin = "admin";
+        private readonly string admin = "Admin";
 
         public LoaisController(MyDBContext context)
         {

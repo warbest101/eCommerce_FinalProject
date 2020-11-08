@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,10 +12,11 @@ using WebBanHang.Models;
 
 namespace WebBanHang.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class BaiVietsController : Controller
     {
         private readonly MyDBContext _context;
-        private readonly string admin = "admin";
+        private readonly string admin = "Admin";
 
         public BaiVietsController(MyDBContext context)
         {

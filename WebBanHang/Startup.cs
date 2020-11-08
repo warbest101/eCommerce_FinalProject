@@ -52,6 +52,7 @@ namespace WebBanHang
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(
                     options => { options.LoginPath = "/TrangChus/Login"; options.AccessDeniedPath = "/TrangChus/Access"; }
                 );
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/TrangChus/Index");
 
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebBanHang.Models;
@@ -10,6 +11,7 @@ using WebBanHang.ViewModels;
 
 namespace WebBanHang.Controllers
 {
+    [Authorize]
     public class ManageAccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -43,7 +45,7 @@ namespace WebBanHang.Controllers
 
             if (!User.Identity.IsAuthenticated)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "TrangChus");
             }
 
             var result = await _userManager.FindByNameAsync(User.Identity.Name);

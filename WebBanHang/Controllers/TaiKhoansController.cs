@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -11,13 +12,14 @@ using WebBanHang.Models;
 
 namespace WebBanHang.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class TaiKhoansController : Controller
     {
         private readonly MyDBContext _context;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
 
-        private readonly string admin = "admin";
+        private readonly string admin = "Admin";
 
         public TaiKhoansController(
             MyDBContext context, 

@@ -9,18 +9,25 @@ using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace WebBanHang.Controllers
 {
     [Route("cart")]
     public class CartController : Controller
     {
-
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
         private readonly MyDBContext _context;
         
-        public CartController(MyDBContext context)
+        public CartController(
+            MyDBContext context, 
+            UserManager<AppUser> userManager, 
+            SignInManager<AppUser> signInManager)
         {
             _context = context;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
         [Route("showsp")]
         public async Task<IActionResult> Showsp(int? id)
@@ -189,8 +196,8 @@ namespace WebBanHang.Controllers
             }
 
         }
-        [HttpGet/*, Authorize*/]
-        public IActionResult ThanhToan()
+        [HttpGet, Authorize]
+        public async Task<IActionResult> ThanhToan()
         {
             var model = _context.loais.ToList();
             ViewBag.model = model;
@@ -200,22 +207,36 @@ namespace WebBanHang.Controllers
                 return View("View");
             }
             else
+            {
                 ViewBag.cart = cart;
+            }
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            ViewBag.PhoneNumber = user.PhoneNumber;
             ViewBag.total = cart.Sum(item => item.Product.DonGia * item.Quantity);
             return View();
         }
-        [HttpPost/*, Authorize*/]
-        public IActionResult ThanhToan(string shipName, int mobile, string address, string email)
+
+        [HttpPost, Authorize]
+        public async Task<IActionResult> ThanhToan(string shipName, string address)
         {
             var model = _context.loais.ToList();
             ViewBag.model = model;
 
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            if(user.PhoneNumber == null)
+            {
+                ViewBag.NoPhoneNumber = "You dont have Phone Number. Pleave add your Phone Number in Manage Account.";
+                return View();
+            }
+
             var oder = new Oder();
             oder.CreatedDate = DateTime.Now;
+            oder.CustomerID = user.Id;
             oder.ShipName = shipName;
             oder.ShipAddress = address;
-            oder.ShipMobile = mobile;
-            oder.ShipEmail = email;
+            oder.ShipMobile = user.PhoneNumber;
+            oder.ShipEmail = user.Email;
 
             try
             {
