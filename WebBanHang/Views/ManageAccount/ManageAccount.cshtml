@@ -48,16 +48,22 @@
                         @if (Model.TwoFactorEnabled)
                         {
                             <form asp-controller="ManageAccount" asp-action="DisableTwoFactorAuthentication" method="post" class="form-horizontal">
-                                Enabled <button type="submit" class="btn-link btn-bracketed">Disable</button>
+                                Enabled <button type="submit" class="btn-link btn-bracketed">[Disable]</button>
                             </form>
+
                         }
                         else
                         {
                             <form asp-controller="ManageAccount" asp-action="EnableTwoFactorAuthentication" method="post" class="form-horizontal">
-                                <button type="submit" class="btn-link btn-bracketed">Enable</button> Disabled
+                                <button type="submit" class="btn-link btn-bracketed">[Enable]</button> Disabled
                             </form>
+                            @if (Model.PhoneNumber == null)
+                            {
+                                <div>Please add your phone number before enable two-factor authentication</div>
+                            }
                         }
                     </dd>
+
                 </dl>
 
             </div>

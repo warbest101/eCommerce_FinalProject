@@ -152,6 +152,12 @@ namespace WebBanHang.Controllers
             var user = await _userManager.GetUserAsync(HttpContext.User);
             if (user != null)
             {
+
+                if(user.PhoneNumber == null)
+                {
+                    return RedirectToAction(nameof(ManageAccount));
+                }
+
                 await _userManager.SetTwoFactorEnabledAsync(user, true);
                 await _signInManager.SignInAsync(user, isPersistent: false);
             }
