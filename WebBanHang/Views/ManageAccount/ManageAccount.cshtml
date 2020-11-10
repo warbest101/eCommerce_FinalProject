@@ -30,15 +30,14 @@
                         @(Model.PhoneNumber ?? "None")
                         @if (Model.PhoneNumber != null)
                         {
-                            <br />
-                            <a asp-controller="ManageAccount" asp-action="AddPhoneNumber" class="btn-link btn-bracketed">Change</a>
+                            <a asp-controller="ManageAccount" asp-action="AddPhoneNumber" class="btn-link btn-bracketed">[Change]</a>
                             <form asp-controller="ManageAccount" asp-action="RemovePhoneNumber" method="post">
-                                [<button type="submit" class="btn-link">Remove</button>]
+                                <button type="submit" class="btn-link">[Remove]</button>
                             </form>
                         }
                         else
                         {
-                            <a asp-controller="ManageAccount" asp-action="AddPhoneNumber" class="btn-link btn-bracketed">[ Add ]</a>
+                            <a asp-controller="ManageAccount" asp-action="AddPhoneNumber" class="btn-link btn-bracketed">[Add]</a>
                         }
                     </dd>
                     <dt>

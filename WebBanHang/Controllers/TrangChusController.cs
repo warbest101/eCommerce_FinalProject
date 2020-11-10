@@ -353,12 +353,6 @@ namespace WebBanHang.Controllers
                         ModelState.AddModelError("", error.Description);
                 }
 
-
-                //ViewBag.phoneNumber = phoneNumber;
-                //var code = "123456";
-                //await _smsSender.SendSmsAsync(phoneNumber, "Your vertification code is: " + code);
-                //await _emailSender.SendEmailAsync("ttphuc75@gmail.com", "", "Thank you");
-                //return View("SendSMS", ViewBag.phoneNumber);
             }
             
             return View(user);
@@ -416,11 +410,6 @@ namespace WebBanHang.Controllers
         {
             var model = _context.loais.ToList();
             ViewBag.model = model;
-
-            if (!User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction(nameof(Index));
-            }
             return View();
         }
 

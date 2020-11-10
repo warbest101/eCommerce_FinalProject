@@ -12,7 +12,7 @@
             <div class="col-md-6">
                 <div class="heading"><h2>Verify Phone Number</h2></div>
                 <form asp-action="VerifyPhoneNumber" method="post">
-
+                    <input asp-for="PhoneNumber" type="hidden" />
                     <div class="form-group">
                         <label asp-for="Code" class="control-label"></label>
                         <input asp-for="Code" class="form-control" required />

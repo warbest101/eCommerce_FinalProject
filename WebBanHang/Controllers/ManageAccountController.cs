@@ -77,7 +77,7 @@ namespace WebBanHang.Controllers
                 }
                 var code = await _userManager.GenerateChangePhoneNumberTokenAsync(user, model.PhoneNumber);
                 await _smsSender.SendSmsAsync(model.PhoneNumber, "Your security code is: " + code);
-                return RedirectToAction(nameof(VerifyPhoneNumber), new {phoneNumber = model.PhoneNumber });
+                return RedirectToAction(nameof(VerifyPhoneNumber), new { model.PhoneNumber });
             }
 
             return View(model);
@@ -95,7 +95,7 @@ namespace WebBanHang.Controllers
                 return NotFound();
             }
             var code = await _userManager.GenerateChangePhoneNumberTokenAsync(user, phoneNumber);
-            return phoneNumber == null ? View() : View(new { PhoneNumber = phoneNumber });
+            return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
         }
 
         [HttpPost]
@@ -124,7 +124,7 @@ namespace WebBanHang.Controllers
                         ModelState.AddModelError("", error.Description);
                 }
             }
-
+            ModelState.AddModelError(string.Empty, "Failed to verify phone number");
             return View(model);
         }
 
