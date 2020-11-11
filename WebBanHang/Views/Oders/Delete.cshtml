@@ -20,6 +20,12 @@
             @Html.DisplayFor(model => model.Status)
         </dd>
         <dt>
+            @Html.DisplayNameFor(model => model.CheckOutType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CheckOutType)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.CustomerID)
         </dt>
         <dd>
@@ -55,8 +61,54 @@
         <dd>
             @Html.DisplayFor(model => model.CreatedDate)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
     </dl>
-    
+    <br />
+    <h4>Details</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Tên Laptop
+                </th>
+                <th>
+                    Loại
+                </th>
+                <th>
+                    Số lượng
+                </th>
+                <th>
+                    Giá tiền
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.oderDetail)
+            {
+                <tr>
+                    <td>
+                        @item.TenHH
+                    </td>
+                    <td>
+                        @item.Loai
+                    </td>
+                    <td>
+                        @item.Quantity
+                    </td>
+                    <td>
+                        @item.Gia
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="ID" />
         <input type="submit" value="Delete" class="btn btn-default" /> |

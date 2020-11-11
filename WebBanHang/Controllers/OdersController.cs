@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebBanHang.Models;
+using WebBanHang.ViewModels;
 
 namespace WebBanHang.Controllers
 {
@@ -41,10 +42,32 @@ namespace WebBanHang.Controllers
 
             var oder = await _context.Oders
                 .FirstOrDefaultAsync(m => m.ID == id);
+
             if (oder == null)
             {
                 return NotFound();
             }
+
+            var oderDetail = await _context.OderDetails.Where(m => m.OderID == oder.ID).ToListAsync();
+
+            if(oderDetail == null)
+            {
+                return NotFound();
+            }
+
+            var subOrderDetail = (from A in _context.HangHoas
+                                      join B in oderDetail on A.MaHH equals B.MaHH
+                                      join C in _context.loais on A.MaLoai equals C.MaLoai
+                                      select new OrderDetailViewModel
+                                      {
+                                          TenHH = A.TenHH,
+                                          Loai = C.TenLoai,
+                                          Quantity = B.Quantity,
+                                          Gia = B.Gia,
+                                      }   
+                                 );
+
+            ViewBag.oderDetail = await subOrderDetail.ToListAsync();
 
             return View(oder);
         }
@@ -64,7 +87,7 @@ namespace WebBanHang.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Status,CustomerID,ShipName,ShipMobile,ShipAddress,ShipEmail,CreatedDate")] Oder oder)
+        public async Task<IActionResult> Create([Bind("ID,Status,CustomerID,ShipName,ShipMobile,ShipAddress,ShipEmail,CreatedDate,CheckOutType,Total")] Oder oder)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +119,7 @@ namespace WebBanHang.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Status,CustomerID,ShipName,ShipMobile,ShipAddress,ShipEmail,CreatedDate")] Oder oder)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Status,CustomerID,ShipName,ShipMobile,ShipAddress,ShipEmail,CreatedDate,CheckOutType,Total")] Oder oder)
         {
             if (id != oder.ID)
             {
@@ -136,11 +159,32 @@ namespace WebBanHang.Controllers
 
             var oder = await _context.Oders
                 .FirstOrDefaultAsync(m => m.ID == id);
+
             if (oder == null)
             {
                 return NotFound();
             }
 
+            var oderDetail = await _context.OderDetails.Where(m => m.OderID == oder.ID).ToListAsync();
+
+            if (oderDetail == null)
+            {
+                return NotFound();
+            }
+
+            var subOrderDetail = (from A in _context.HangHoas
+                                  join B in oderDetail on A.MaHH equals B.MaHH
+                                  join C in _context.loais on A.MaLoai equals C.MaLoai
+                                  select new OrderDetailViewModel
+                                  {
+                                      TenHH = A.TenHH,
+                                      Loai = C.TenLoai,
+                                      Quantity = B.Quantity,
+                                      Gia = B.Gia,
+                                  }
+                                 );
+
+            ViewBag.oderDetail = await subOrderDetail.ToListAsync();
             return View(oder);
         }
 
@@ -150,8 +194,20 @@ namespace WebBanHang.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var oder = await _context.Oders.FindAsync(id);
+            var oderDetail = await _context.OderDetails.Where(m => m.OderID == oder.ID).ToListAsync();
+
+            if(oderDetail != null)
+            {
+                foreach (var item in oderDetail)
+                {
+                    _context.OderDetails.Remove(item);
+                }
+            }
+
             _context.Oders.Remove(oder);
+
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 

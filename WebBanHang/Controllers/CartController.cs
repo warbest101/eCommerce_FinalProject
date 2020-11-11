@@ -11,6 +11,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using PayPal.Core;
+using Microsoft.Extensions.Configuration;
+using PayPal.v1.Payments;
+using Item = WebBanHang.Models.Item;
+using item = PayPal.v1.Payments.Item;
+using BraintreeHttp;
 
 namespace WebBanHang.Controllers
 {
@@ -20,15 +25,21 @@ namespace WebBanHang.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly MyDBContext _context;
-        
+        private readonly string _clientId;
+        private readonly string _secretKey;
+
+        public double tyGiaUSD = 23300;
         public CartController(
             MyDBContext context, 
             UserManager<AppUser> userManager, 
-            SignInManager<AppUser> signInManager)
+            SignInManager<AppUser> signInManager,
+            IConfiguration config)
         {
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
+            _clientId = config["PaypalSettings:ClientId"];
+            _secretKey = config["PaypalSettings:SecretKey"];
         }
         [Route("showsp")]
         public async Task<IActionResult> Showsp(int? id)
@@ -198,6 +209,7 @@ namespace WebBanHang.Controllers
 
         }
         [HttpGet, Authorize]
+        [Route("thanh-toan")]
         public async Task<IActionResult> ThanhToan()
         {
             var model = _context.loais.ToList();
@@ -218,6 +230,7 @@ namespace WebBanHang.Controllers
         }
 
         [HttpPost, Authorize]
+        [Route("thanh-toan")]
         public async Task<IActionResult> ThanhToan(string shipName, string address)
         {
             var model = _context.loais.ToList();
@@ -231,6 +244,8 @@ namespace WebBanHang.Controllers
                 return View();
             }
 
+            var cart = SessionHelper.Get<List<Item>>(HttpContext.Session, "cart");
+
             var oder = new Oder();
             oder.CreatedDate = DateTime.Now;
             oder.CustomerID = user.Id;
@@ -238,11 +253,16 @@ namespace WebBanHang.Controllers
             oder.ShipAddress = address;
             oder.ShipMobile = user.PhoneNumber;
             oder.ShipEmail = user.Email;
+            oder.CheckOutType = "Normal";
+
+            var subTotal = cart.Sum( item => (item.Product.DonGia * item.Quantity) );
+            var giamGia = cart.Sum( item => (item.Product.GiamGia * item.Product.DonGia * item.Quantity) / 100);
+
+            oder.Total = Math.Round(subTotal - giamGia, 0);
 
             try
             {
                 var id = Insert(oder);
-                var cart = SessionHelper.Get<List<Item>>(HttpContext.Session, "cart");
                 foreach (var item in cart)
                 {
                     var oderDetail = new OderDetail();
@@ -258,22 +278,155 @@ namespace WebBanHang.Controllers
                         hanghoas.DaMua += item.Quantity;
                         _context.Update(hanghoas);
                         _context.SaveChanges();
-                    
-                    
                    
                 }
             }
             catch(Exception e)
             {
                 Console.Write(e);
+                return View("ThatBai");
             }
-            SessionHelper.Set(HttpContext.Session, "cart", "");
-            return View("HoanThanh",ViewBag.model);
+
+            oder.Status = true;
+            _context.Update(oder);
+            _context.SaveChanges();
+
+            return View("HoanThanh");
 
         }
-        public async Task< IActionResult> xemdonhang()
+
+        [Authorize]
+        [Route("thanh-toan-paypal")]
+        public async Task<IActionResult> ThanhToanPaypal()
+        {
+            var model = _context.loais.ToList();
+            ViewBag.model = model;
+
+            var environment = new SandboxEnvironment(_clientId, _secretKey);
+            var client = new PayPalHttpClient(environment);
+
+            #region Create Paypal Order
+            var cart = SessionHelper.Get<List<Item>>(HttpContext.Session, "cart");
+            var itemList = new ItemList()
+            {
+                Items = new List<item>()
+            };
+            //var total = Math.Round(cart.Sum(item => (item.Product.DonGia * item.Quantity) - ((item.Product.GiamGia) * (item.Product.DonGia)) / 100) / tyGiaUSD, 2);
+            var total = Math.Round(cart.Sum((item => (item.Product.DonGia * item.Quantity))) / tyGiaUSD, 2);
+            foreach (var item in cart)
+            {
+                itemList.Items.Add(new item()
+                {
+                    Name = item.Product.TenHH,
+                    Currency = "USD",
+                    Price = Math.Round(item.Product.DonGia / tyGiaUSD, 2).ToString(),
+                    Quantity = item.Quantity.ToString(),
+                    Sku = "sku",
+                    Tax = "0"
+                });
+            }
+            #endregion
+
+            var paypalOrderId = DateTime.Now.Ticks;
+            var hostname = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}";
+            var payment = new Payment()
+            {
+                Intent = "sale",
+                Transactions = new List<Transaction>()
+                {
+                    new Transaction()
+                    {
+                        Amount = new Amount()
+                        {
+                            Total = total.ToString(),
+                            Currency = "USD",
+                            Details = new AmountDetails
+                            {
+                                Tax = "0",
+                                Shipping = "0",
+                                Subtotal = total.ToString()
+                            }
+                        },
+                        ItemList = itemList,
+                        Description = $"Invoice #{paypalOrderId}",
+                        InvoiceNumber = paypalOrderId.ToString()
+                    }
+                },
+                RedirectUrls = new RedirectUrls()
+                {
+                    CancelUrl = $"{hostname}/cart/that-bai",
+                    ReturnUrl = $"{hostname}/cart/hoan-thanh"
+                },
+                Payer = new Payer()
+                {
+                    PaymentMethod = "paypal"
+                }
+            };
+
+            PaymentCreateRequest request = new PaymentCreateRequest();
+            request.RequestBody(payment);
+
+            try
+            {
+                var response = await client.Execute(request);
+                var statusCode = response.StatusCode;
+                Payment result = response.Result<Payment>();
+
+                var links = result.Links.GetEnumerator();
+                string paypalRedirectUrl = null;
+                while (links.MoveNext())
+                {
+                    LinkDescriptionObject lnk = links.Current;
+                    if (lnk.Rel.ToLower().Trim().Equals("approval_url"))
+                    {
+                        paypalRedirectUrl = lnk.Href;
+                    }
+                }
+                return Redirect(paypalRedirectUrl);
+            }
+            catch (HttpException httpException)
+            {
+                var statusCode = httpException.StatusCode;
+                var debugId = httpException.Headers.GetValues("PayPal-Debug-Id").FirstOrDefault();
+
+                return Redirect("/cart/that-bai");
+            }
+        }
+
+        [HttpGet, Authorize]
+        [Route("thanh-toan-onepay")]
+        public IActionResult ThanhToanOnePay()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> xemdonhang()
         {
             return View(await _context.loais.ToListAsync());
+        }
+
+        [HttpGet]
+        [Route("hoan-thanh")]
+        public IActionResult HoanThanh()
+        {
+            var model = _context.loais.ToList();
+            ViewBag.model = model;
+
+            SessionHelper.Set(HttpContext.Session, "cart", "");
+
+            return View();
+        }
+
+        [HttpGet]
+        [Route("that-bai")]
+        public IActionResult ThatBai()
+        {
+            var model = _context.loais.ToList();
+            ViewBag.model = model;
+
+            SessionHelper.Set(HttpContext.Session, "cart", "");
+
+            return View();
         }
 
     }

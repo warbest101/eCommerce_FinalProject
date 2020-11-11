@@ -12,12 +12,21 @@ namespace WebBanHang.Models
     {
         [Key]
         public int ID { get; set; }
+        [Display(Name ="Check out Succeed")]
         public bool Status { get; set; }
         public string CustomerID { get; set; }
         public string ShipName { get; set; }
         public string ShipMobile { get; set; }
         public string ShipAddress { get; set; }
+
         public string ShipEmail { get; set; }
+
+        [Display(Name = "Created Date")]
         public DateTime CreatedDate { get; set; }
+
+        [Display(Name = "Check out type")]
+        public string CheckOutType { get; set; }
+
+        public double Total { get; set; }
     }
 }
