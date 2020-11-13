@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ReflectionIT.Mvc.Paging;
 using WebBanHang.Models;
 
 namespace WebBanHang.Controllers
@@ -22,15 +23,16 @@ namespace WebBanHang.Controllers
         }
 
         // GET: OderDetails
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
             if (User.Identity.Name != admin)
             {
                 return RedirectToAction("Index", "TrangChus");
             }
-            var model = _context.OderDetails.ToList();
-            ViewBag.model = model;
-            return View();
+
+            var query = _context.OderDetails.AsNoTracking().OrderBy(p => p.ID);
+            var model = await PagingList.CreateAsync(query, 10, page);
+            return View(model);
         }
 
         // GET: OderDetails/Details/5

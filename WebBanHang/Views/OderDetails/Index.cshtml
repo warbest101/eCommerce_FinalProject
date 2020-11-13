@@ -7,7 +7,9 @@
 }
 
 <h2>Index</h2>
-
+<nav aria-label="Order Paging">
+    @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+</nav>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -32,7 +34,7 @@ Gia            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in ViewBag.model) {
+@foreach (var item in Model) {
         <tr>
             <td>
                @item.ID

@@ -7,7 +7,9 @@
 }
 
 <h2>Index</h2>
-
+<nav aria-label="Order Paging">
+    @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+</nav>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -15,7 +17,7 @@
     <thead>
         <tr>
             <th>
-                ID
+                Mã đơn hàng
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CheckOutType)
@@ -45,7 +47,14 @@
                 @Html.DisplayFor(modelItem => item.CheckOutType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
+                @if (item.Status)
+                {
+                    <p>Thành công</p>
+                }
+                else
+                {
+                    <p>Thất bại</p>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ShipName)

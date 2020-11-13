@@ -31,7 +31,7 @@ namespace WebBanHang.Controllers
             {
                 return RedirectToAction("Index", "TrangChus");
             }
-            var query = _context.HangHoas.AsNoTracking().OrderBy(p => p.MaHH);
+            var query = _context.HangHoas.Include(h => h.Loai).AsNoTracking().OrderBy(p => p.MaHH);
             var model = await PagingList.CreateAsync(query, 10, page);
             return View(model);
         }

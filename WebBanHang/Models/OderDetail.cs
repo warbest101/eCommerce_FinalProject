@@ -19,5 +19,6 @@ namespace WebBanHang.Models
         [ForeignKey("MaHH")]
         public int MaHH { get; set; }
         public Oder oder { get; set; }
+        public HangHoa hangHoa { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ReflectionIT.Mvc.Paging;
 using WebBanHang.Models;
 using WebBanHang.ViewModels;
 
@@ -23,13 +24,15 @@ namespace WebBanHang.Controllers
         }
 
         // GET: Oders
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
             if (User.Identity.Name != admin)
             {
                 return RedirectToAction("Index", "TrangChus");
             }
-            return View(await _context.Oders.ToListAsync());
+            var query = _context.Oders.AsNoTracking().OrderBy(p => p.ID);
+            var model = await PagingList.CreateAsync(query, 10, page);
+            return View(model);
         }
 
         // GET: Oders/Details/5
@@ -48,29 +51,34 @@ namespace WebBanHang.Controllers
                 return NotFound();
             }
 
-            var oderDetail = await _context.OderDetails.Where(m => m.OderID == oder.ID).ToListAsync();
+            var subOderDetail = await _context.OderDetails.Where(m => m.OderID == oder.ID).ToListAsync();
 
-            if(oderDetail == null)
+            if(subOderDetail == null)
             {
                 return NotFound();
             }
 
-            var subOrderDetail = (from A in _context.HangHoas
-                                      join B in oderDetail on A.MaHH equals B.MaHH
+            var oderDetail = (from A in _context.HangHoas
+                                      join B in subOderDetail on A.MaHH equals B.MaHH
                                       join C in _context.loais on A.MaLoai equals C.MaLoai
                                       select new OrderDetailViewModel
                                       {
+                                          ID = B.ID,
                                           TenHH = A.TenHH,
                                           Loai = C.TenLoai,
                                           Quantity = B.Quantity,
+                                          GiamGia = A.GiamGia,
+                                          TongGiam = A.GiamGia * B.Quantity,
                                           Gia = B.Gia,
+                                          ThanhTien = Math.Round( (B.Gia * B.Quantity) - (B.Gia * B.Quantity * A.GiamGia / 100), 0)
                                       }   
                                  );
 
-            ViewBag.oderDetail = await subOrderDetail.ToListAsync();
+            ViewBag.oderDetail = await oderDetail.ToListAsync();
 
             return View(oder);
         }
+
 
         // GET: Oders/Create
         public IActionResult Create()

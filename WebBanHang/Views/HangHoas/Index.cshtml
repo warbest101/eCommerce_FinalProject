@@ -25,9 +25,6 @@
                 Ảnh
             </th>
             <th>
-                Mô Tả
-            </th>
-            <th>
                 Giá
             </th>
             <th>
@@ -37,16 +34,10 @@
                 Số Lượng
             </th>
             <th>
-                Mã Loại
+                Loại
             </th>
             <th>
                 Ngày Đăng
-            </th>
-            <th>
-                Nổi bật
-            </th>
-            <th>
-                Đã Mua
             </th>
             <th></th>
         </tr>
@@ -61,9 +52,6 @@
                 <img src="~/Hinh/@item.Hinh" width="100" height="100" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MoTa)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DonGia)
             </td>
             <td>
@@ -73,16 +61,10 @@
                 @Html.DisplayFor(modelItem => item.SoLuong)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MaLoai)
+                @Html.DisplayFor(modelItem => item.Loai.TenLoai)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NgayDang)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NoiBat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DaMua)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.MaHH">Edit</a> |

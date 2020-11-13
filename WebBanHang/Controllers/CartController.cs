@@ -37,7 +37,6 @@ namespace WebBanHang.Controllers
 
         //VNPay
         private readonly string _url;
-        private readonly string _returnUrl;
         private readonly string _tmnCode;
         private readonly string _hashSecret;
         private readonly IUtils _utils;
@@ -62,7 +61,6 @@ namespace WebBanHang.Controllers
 
             //VNPay
             _url = config["VnPaySettings:Url"];
-            _returnUrl = config["VnPaySettings:ReturnUrl"];
             _tmnCode = config["VnPaySettings:TmnCode"];
             _hashSecret = config["VnPaySettings:HashSecret"];
             _utils = utils;
