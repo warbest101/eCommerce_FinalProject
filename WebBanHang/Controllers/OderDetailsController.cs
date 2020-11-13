@@ -157,7 +157,7 @@ namespace WebBanHang.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool OderDetailExists(int id)
+        private bool OderDetailExists(long id)
         {
             return _context.OderDetails.Any(e => e.OderID == id);
         }

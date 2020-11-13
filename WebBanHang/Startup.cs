@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using ReflectionIT.Mvc.Paging;
 using WebBanHang.Models;
 using WebBanHang.Services;
+using WebBanHang.VnPay;
 
 namespace WebBanHang
 {
@@ -53,7 +54,10 @@ namespace WebBanHang
                     options => { options.LoginPath = "/TrangChus/Login"; options.AccessDeniedPath = "/TrangChus/Access"; }
                 );
             services.ConfigureApplicationCookie(options => options.LoginPath = "/TrangChus/Login");
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            services.AddTransient<IUtils, Utils>();
+            services.AddTransient<IVnPayLibrary, VnPayLibrary>();
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
             services.Configure<SMSoptions>(Configuration);

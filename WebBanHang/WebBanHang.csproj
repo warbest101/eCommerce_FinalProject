@@ -14,6 +14,8 @@
     <Compile Remove="Migrations\20191217140143_AddVal.Designer.cs" />
     <Compile Remove="Migrations\20201105095717_IdentityDatabase.cs" />
     <Compile Remove="Migrations\20201105095717_IdentityDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20201112142147_Database.cs" />
+    <Compile Remove="Migrations\20201112142147_Database.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

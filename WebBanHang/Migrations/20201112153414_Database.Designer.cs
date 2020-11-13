@@ -10,8 +10,8 @@ using WebBanHang.Models;
 namespace WebBanHang.Migrations
 {
     [DbContext(typeof(MyDBContext))]
-    [Migration("20201107075450_fixtable")]
-    partial class fixtable
+    [Migration("20201112153414_Database")]
+    partial class Database
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -273,23 +273,25 @@ namespace WebBanHang.Migrations
 
             modelBuilder.Entity("WebBanHang.Models.Oder", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<long>("ID");
+
+                    b.Property<string>("CheckOutType");
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<int>("CustomerID");
+                    b.Property<string>("CustomerID");
 
                     b.Property<string>("ShipAddress");
 
                     b.Property<string>("ShipEmail");
 
-                    b.Property<int>("ShipMobile");
+                    b.Property<string>("ShipMobile");
 
                     b.Property<string>("ShipName");
 
                     b.Property<bool>("Status");
+
+                    b.Property<double>("Total");
 
                     b.HasKey("ID");
 
@@ -306,7 +308,7 @@ namespace WebBanHang.Migrations
 
                     b.Property<int>("MaHH");
 
-                    b.Property<int>("OderID");
+                    b.Property<long>("OderID");
 
                     b.Property<int>("Quantity");
 

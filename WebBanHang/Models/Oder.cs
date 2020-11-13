@@ -11,8 +11,9 @@ namespace WebBanHang.Models
     public class Oder
     {
         [Key]
-        public int ID { get; set; }
-        [Display(Name ="Check out Succeed")]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public long ID { get; set; }
+        [Display(Name ="Checkout")]
         public bool Status { get; set; }
         public string CustomerID { get; set; }
         public string ShipName { get; set; }
@@ -24,7 +25,7 @@ namespace WebBanHang.Models
         [Display(Name = "Created Date")]
         public DateTime CreatedDate { get; set; }
 
-        [Display(Name = "Check out type")]
+        [Display(Name = "Checkout type")]
         public string CheckOutType { get; set; }
 
         public double Total { get; set; }

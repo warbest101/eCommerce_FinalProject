@@ -33,7 +33,7 @@ namespace WebBanHang.Controllers
         }
 
         // GET: Oders/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
             {
@@ -91,6 +91,7 @@ namespace WebBanHang.Controllers
         {
             if (ModelState.IsValid)
             {
+                oder.ID = DateTime.Now.Ticks;
                 _context.Add(oder);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -99,7 +100,7 @@ namespace WebBanHang.Controllers
         }
 
         // GET: Oders/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
             {
@@ -119,7 +120,7 @@ namespace WebBanHang.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Status,CustomerID,ShipName,ShipMobile,ShipAddress,ShipEmail,CreatedDate,CheckOutType,Total")] Oder oder)
+        public async Task<IActionResult> Edit(long id, [Bind("ID,Status,CustomerID,ShipName,ShipMobile,ShipAddress,ShipEmail,CreatedDate,CheckOutType,Total")] Oder oder)
         {
             if (id != oder.ID)
             {
@@ -150,7 +151,7 @@ namespace WebBanHang.Controllers
         }
 
         // GET: Oders/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
             {
@@ -191,7 +192,7 @@ namespace WebBanHang.Controllers
         // POST: Oders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(long id)
         {
             var oder = await _context.Oders.FindAsync(id);
             var oderDetail = await _context.OderDetails.Where(m => m.OderID == oder.ID).ToListAsync();
@@ -211,7 +212,7 @@ namespace WebBanHang.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool OderExists(int id)
+        private bool OderExists(long id)
         {
             return _context.Oders.Any(e => e.ID == id);
         }

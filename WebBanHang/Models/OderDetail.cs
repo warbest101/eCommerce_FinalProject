@@ -13,7 +13,7 @@ namespace WebBanHang.Models
         [Key]
         public int ID { get; set; }
         [ForeignKey("OderID")]
-        public int OderID { get; set; }
+        public long OderID { get; set; }
         public int Quantity { get; set; }
         public double Gia { get; set; }
         [ForeignKey("MaHH")]

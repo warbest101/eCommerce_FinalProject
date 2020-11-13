@@ -271,9 +271,7 @@ namespace WebBanHang.Migrations
 
             modelBuilder.Entity("WebBanHang.Models.Oder", b =>
                 {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<long>("ID");
 
                     b.Property<string>("CheckOutType");
 
@@ -308,7 +306,7 @@ namespace WebBanHang.Migrations
 
                     b.Property<int>("MaHH");
 
-                    b.Property<int>("OderID");
+                    b.Property<long>("OderID");
 
                     b.Property<int>("Quantity");
 

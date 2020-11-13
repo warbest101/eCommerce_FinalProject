@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebBanHang.Migrations
 {
-    public partial class IdentityDB : Migration
+    public partial class Database : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,7 +40,8 @@ namespace WebBanHang.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    Password = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -96,15 +97,16 @@ namespace WebBanHang.Migrations
                 name: "Oder",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ID = table.Column<long>(nullable: false),
                     Status = table.Column<bool>(nullable: false),
-                    CustomerID = table.Column<int>(nullable: false),
+                    CustomerID = table.Column<string>(nullable: true),
                     ShipName = table.Column<string>(nullable: true),
-                    ShipMobile = table.Column<int>(nullable: false),
+                    ShipMobile = table.Column<string>(nullable: true),
                     ShipAddress = table.Column<string>(nullable: true),
                     ShipEmail = table.Column<string>(nullable: true),
-                    CreatedDate = table.Column<DateTime>(nullable: false)
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    CheckOutType = table.Column<string>(nullable: true),
+                    Total = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -278,7 +280,7 @@ namespace WebBanHang.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    OderID = table.Column<int>(nullable: false),
+                    OderID = table.Column<long>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
                     Gia = table.Column<double>(nullable: false),
                     MaHH = table.Column<int>(nullable: false)

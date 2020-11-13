@@ -13,7 +13,7 @@ namespace WebBanHang.DAO
         {
             _context = context;
         }
-        public int Insert(Oder oder)
+        public long Insert(Oder oder)
         {
             _context.Oders.Add(oder);
             _context.SaveChanges();

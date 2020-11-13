@@ -16,6 +16,8 @@ using PayPal.v1.Payments;
 using Item = WebBanHang.Models.Item;
 using item = PayPal.v1.Payments.Item;
 using BraintreeHttp;
+using WebBanHang.VnPay;
+using WebBanHang.ViewModels;
 
 namespace WebBanHang.Controllers
 {
@@ -25,21 +27,46 @@ namespace WebBanHang.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly MyDBContext _context;
+
+        //Order Id
+        private long _orderId = 0;
+
+        //Paypal
         private readonly string _clientId;
         private readonly string _secretKey;
+
+        //VNPay
+        private readonly string _url;
+        private readonly string _returnUrl;
+        private readonly string _tmnCode;
+        private readonly string _hashSecret;
+        private readonly IUtils _utils;
+        private readonly IVnPayLibrary _vnPayLibrary;
 
         public double tyGiaUSD = 23300;
         public CartController(
             MyDBContext context, 
             UserManager<AppUser> userManager, 
             SignInManager<AppUser> signInManager,
+            IUtils utils,
+            IVnPayLibrary vnPayLibrary,
             IConfiguration config)
         {
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
+
+            //Paypal
             _clientId = config["PaypalSettings:ClientId"];
             _secretKey = config["PaypalSettings:SecretKey"];
+
+            //VNPay
+            _url = config["VnPaySettings:Url"];
+            _returnUrl = config["VnPaySettings:ReturnUrl"];
+            _tmnCode = config["VnPaySettings:TmnCode"];
+            _hashSecret = config["VnPaySettings:HashSecret"];
+            _utils = utils;
+            _vnPayLibrary = vnPayLibrary;
         }
         [Route("showsp")]
         public async Task<IActionResult> Showsp(int? id)
@@ -172,7 +199,7 @@ namespace WebBanHang.Controllers
             SessionHelper.Set(HttpContext.Session, "cart", "");
             return RedirectToAction("Index");
         }
-        public int Insert(Oder oder)
+        public long Insert(Oder oder)
         {
             _context.Oders.Add(oder);
             _context.SaveChanges();
@@ -241,12 +268,13 @@ namespace WebBanHang.Controllers
             if(user.PhoneNumber == null)
             {
                 ViewBag.NoPhoneNumber = "You dont have Phone Number. Pleave add your Phone Number in Manage Account.";
-                return View();
+                //return View();
             }
 
             var cart = SessionHelper.Get<List<Item>>(HttpContext.Session, "cart");
 
             var oder = new Oder();
+            oder.ID = DateTime.Now.Ticks;
             oder.CreatedDate = DateTime.Now;
             oder.CustomerID = user.Id;
             oder.ShipName = shipName;
@@ -259,6 +287,8 @@ namespace WebBanHang.Controllers
             var giamGia = cart.Sum( item => (item.Product.GiamGia * item.Product.DonGia * item.Quantity) / 100);
 
             oder.Total = Math.Round(subTotal - giamGia, 0);
+            _orderId = oder.ID;
+
 
             try
             {
@@ -302,6 +332,8 @@ namespace WebBanHang.Controllers
             var model = _context.loais.ToList();
             ViewBag.model = model;
 
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
             var environment = new SandboxEnvironment(_clientId, _secretKey);
             var client = new PayPalHttpClient(environment);
 
@@ -326,6 +358,7 @@ namespace WebBanHang.Controllers
                 });
             }
             #endregion
+
 
             var paypalOrderId = DateTime.Now.Ticks;
             var hostname = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}";
@@ -363,6 +396,51 @@ namespace WebBanHang.Controllers
                 }
             };
 
+            #region Insert Order to Database
+            var oder = new Oder();
+            oder.ID = paypalOrderId;
+            oder.ShipAddress = "None";
+            oder.ShipName = "Paypal User";
+            oder.ShipMobile = "None";
+            oder.ShipEmail = user.Email;
+            oder.CheckOutType = "Paypal";
+            oder.CustomerID = user.Id;
+            oder.CreatedDate = DateTime.Now;
+
+            var subTotal = cart.Sum(item => (item.Product.DonGia * item.Quantity));
+            var giamGia = cart.Sum(item => (item.Product.GiamGia * item.Product.DonGia * item.Quantity) / 100);
+
+            oder.Total = Math.Round(subTotal - giamGia, 0);
+
+            _orderId = oder.ID;
+            SessionHelper.Set(HttpContext.Session, "orderId", _orderId);
+
+            try
+            {
+                var id = Insert(oder);
+                foreach (var item in cart)
+                {
+                    var oderDetail = new OderDetail();
+                    oderDetail.MaHH = item.Product.MaHH;
+                    oderDetail.OderID = id;
+                    oderDetail.Gia = item.Product.DonGia;
+                    oderDetail.Quantity = item.Quantity;
+                    Insert1(oderDetail);
+
+                    var hanghoas = _context.HangHoas.Where(x => x.MaHH == item.Product.MaHH).First();
+
+                    hanghoas.DaMua += item.Quantity;
+                    _context.Update(hanghoas);
+                    _context.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Write(e);
+                return View("ThatBai");
+            }
+            #endregion
+
             PaymentCreateRequest request = new PaymentCreateRequest();
             request.RequestBody(payment);
 
@@ -382,6 +460,7 @@ namespace WebBanHang.Controllers
                         paypalRedirectUrl = lnk.Href;
                     }
                 }
+
                 return Redirect(paypalRedirectUrl);
             }
             catch (HttpException httpException)
@@ -393,10 +472,133 @@ namespace WebBanHang.Controllers
             }
         }
 
-        [HttpGet, Authorize]
-        [Route("thanh-toan-onepay")]
-        public IActionResult ThanhToanOnePay()
+        [Authorize]
+        [Route("thanh-toan-vnpay")]
+        public async Task<IActionResult> ThanhToanVnPay()
         {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var hostname = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}";
+
+            var oder = new Oder();
+            oder.ID = DateTime.Now.Ticks;
+            oder.ShipName = "VNPay User";
+            oder.ShipMobile = "None";
+            oder.ShipAddress = "None";
+            oder.ShipEmail = user.Email;
+            oder.CustomerID = user.Id;
+            oder.CreatedDate = DateTime.Now;
+            oder.CheckOutType = "VNPay";
+
+            var cart = SessionHelper.Get<List<Item>>(HttpContext.Session, "cart");
+            var subTotal = cart.Sum(item => (item.Product.DonGia * item.Quantity));
+            var giamGia = cart.Sum(item => (item.Product.GiamGia * item.Product.DonGia * item.Quantity) / 100);
+
+            oder.Total = Math.Round(subTotal - giamGia, 0);
+
+            try
+            {
+                var id = Insert(oder);
+                foreach (var item in cart)
+                {
+                    var oderDetail = new OderDetail();
+                    oderDetail.MaHH = item.Product.MaHH;
+                    oderDetail.OderID = id;
+                    oderDetail.Gia = item.Product.DonGia;
+                    oderDetail.Quantity = item.Quantity;
+                    Insert1(oderDetail);
+
+                    var hanghoas = _context.HangHoas.Where(x => x.MaHH == item.Product.MaHH).First();
+
+                    hanghoas.DaMua += item.Quantity;
+                    _context.Update(hanghoas);
+                    _context.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Write(e);
+                return View("ThatBai");
+            }
+
+            _vnPayLibrary.AddRequestData("vnp_Version", "2.0.0");
+            _vnPayLibrary.AddRequestData("vnp_Command", "pay");
+            _vnPayLibrary.AddRequestData("vnp_TmnCode", _tmnCode);
+            _vnPayLibrary.AddRequestData("vnp_Amount", (oder.Total * 100).ToString());
+            _vnPayLibrary.AddRequestData("vnp_BankCode", "NCB");
+            _vnPayLibrary.AddRequestData("vnp_CreateDate", oder.CreatedDate.ToString("yyyyMMddHHmmss"));
+            _vnPayLibrary.AddRequestData("vnp_CurrCode", "VND");
+            _vnPayLibrary.AddRequestData("vnp_IpAddr", _utils.GetIpAddress());
+            _vnPayLibrary.AddRequestData("vnp_Locale", "vn");
+            _vnPayLibrary.AddRequestData("vnp_OrderInfo", "Noi dung thanh toan:" + DateTime.Now.ToString("yyyyMMddHHmmss"));
+            _vnPayLibrary.AddRequestData("vnp_OrderType", "130001"); //default value: other
+            _vnPayLibrary.AddRequestData("vnp_ReturnUrl", $"{hostname}/cart/ket-qua-vnpay");
+            _vnPayLibrary.AddRequestData("vnp_TxnRef", oder.ID.ToString());
+
+            string paymentUrl = _vnPayLibrary.CreateRequestUrl(_url, _hashSecret);
+
+            return Redirect(paymentUrl);
+        }
+
+        //VN Pay
+        [HttpGet]
+        [Route("ket-qua-vnpay")]
+        public IActionResult KetQuaVnPay()
+        {
+            var model = _context.loais.ToList();
+            ViewBag.model = model;
+            if(Request.QueryString != null)
+            {
+                string vnp_Amount = Request.Query["vnp_Amount"];
+                string vnp_BankCode = Request.Query["vnp_BankCode"];
+                string vnp_BankTranNo = Request.Query["vnp_BankTranNo"];
+                string vnp_CardType = Request.Query["vnp_CardType"];
+                string vnp_OrderInfo = Request.Query["vnp_OrderInfo"];
+                string vnp_PayDate = Request.Query["vnp_PayDate"];
+                string vnp_ResponseCode = Request.Query["vnp_ResponseCode"];
+                string vnp_TmnCode = Request.Query["vnp_TmnCode"];
+                string vnp_TransactionNo = Request.Query["vnp_TransactionNo"];
+                string vnp_TxnRef = Request.Query["vnp_TxnRef"];
+                string vnp_SecureHashType = Request.Query["vnp_SecureHashType"];
+                string vnp_SecureHash = Request.Query["vnp_SecureHash"];
+
+                _vnPayLibrary.AddResponseData("vnp_Amount", vnp_Amount);
+                _vnPayLibrary.AddResponseData("vnp_BankCode", vnp_BankCode);
+                _vnPayLibrary.AddResponseData("vnp_BankTranNo", vnp_BankTranNo);
+                _vnPayLibrary.AddResponseData("vnp_CardType", vnp_CardType);
+                _vnPayLibrary.AddResponseData("vnp_OrderInfo", vnp_OrderInfo);
+                _vnPayLibrary.AddResponseData("vnp_PayDate", vnp_PayDate);
+                _vnPayLibrary.AddResponseData("vnp_ResponseCode", vnp_ResponseCode);
+                _vnPayLibrary.AddResponseData("vnp_TmnCode", vnp_TmnCode);
+                _vnPayLibrary.AddResponseData("vnp_TransactionNo", vnp_TransactionNo);
+                _vnPayLibrary.AddResponseData("vnp_TxnRef", vnp_TxnRef);
+                _vnPayLibrary.AddResponseData("vnp_SecureHashType", vnp_SecureHashType);
+                _vnPayLibrary.AddResponseData("vnp_SecureHash", vnp_SecureHash);
+
+                long orderId = Convert.ToInt64(_vnPayLibrary.GetResponseData("vnp_TxnRef"));
+                bool checkSignature = _vnPayLibrary.ValidateSignature(vnp_SecureHash, _hashSecret);
+                
+                if (checkSignature)
+                {
+                    if(vnp_ResponseCode == "00")
+                    {
+                        ViewBag.KetQua = "Thanh toán thành công";
+                        var oder = _context.Oders.SingleOrDefault(m => m.ID == orderId);
+                        oder.Status = true;
+                        _context.Update(oder);
+                        _context.SaveChanges();
+
+                    }
+                    else
+                    {
+                        ViewBag.KetQua = "Thanh toán không thành công. Có lỗi xảy ra trong quá trình xử lý.";
+                    }
+                }
+                else
+                {
+                    ViewBag.KetQua = "Thanh toán không thành công. Có lỗi xảy ra trong quá trình xử lý.";
+                }
+            }
+            SessionHelper.Set(HttpContext.Session, "cart", "");
             return View();
         }
 
@@ -412,6 +614,25 @@ namespace WebBanHang.Controllers
             var model = _context.loais.ToList();
             ViewBag.model = model;
 
+            if(_orderId == 0)
+            {
+                var orderId = SessionHelper.Get<long>(HttpContext.Session, "orderId");
+                _orderId = orderId;
+            }
+            
+            SessionHelper.Set(HttpContext.Session, "orderId", 0); 
+
+            var oder = _context.Oders.SingleOrDefault(m => m.ID == _orderId);
+
+            if(oder == null)
+            {
+                return NotFound();
+            }
+
+            oder.Status = true;
+            _context.Update(oder);
+            _context.SaveChanges();
+
             SessionHelper.Set(HttpContext.Session, "cart", "");
 
             return View();
@@ -425,9 +646,11 @@ namespace WebBanHang.Controllers
             ViewBag.model = model;
 
             SessionHelper.Set(HttpContext.Session, "cart", "");
+            SessionHelper.Set(HttpContext.Session, "orderId", 0);
 
             return View();
         }
+
 
     }
 }
