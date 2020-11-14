@@ -68,9 +68,8 @@ namespace WebBanHang.Controllers
                                           Loai = C.TenLoai,
                                           Quantity = B.Quantity,
                                           GiamGia = A.GiamGia,
-                                          TongGiam = A.GiamGia * B.Quantity,
                                           Gia = B.Gia,
-                                          ThanhTien = Math.Round( (B.Gia * B.Quantity) - (B.Gia * B.Quantity * A.GiamGia / 100), 0)
+                                          ThanhTien = Math.Round( (B.Gia * B.Quantity) - ( (B.Gia * B.Quantity) * A.GiamGia / 100), 0)
                                       }   
                                  );
 

@@ -34,6 +34,8 @@ namespace WebBanHang.Controllers
         //Paypal
         private readonly string _clientId;
         private readonly string _secretKey;
+        private readonly string _email;
+        private readonly string _merchantId;
 
         //VNPay
         private readonly string _url;
@@ -58,6 +60,8 @@ namespace WebBanHang.Controllers
             //Paypal
             _clientId = config["PaypalSettings:ClientId"];
             _secretKey = config["PaypalSettings:SecretKey"];
+            _email = config["PaypalSettings:Email"];
+            _merchantId = config["PaypalSettings:MerchantId"];
 
             //VNPay
             _url = config["VnPaySettings:Url"];
@@ -69,7 +73,7 @@ namespace WebBanHang.Controllers
         [Route("showsp")]
         public async Task<IActionResult> Showsp(int? id)
         {
-            var model = _context.loais.ToList();
+            var model = await _context.loais.ToListAsync();
             ViewBag.model = model;
 
             var loai = _context.HangHoas
@@ -78,21 +82,21 @@ namespace WebBanHang.Controllers
             return View(loai);
         }
         [Route("index")]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-           
+
             var model = _context.loais.ToList();
             ViewBag.model = model;
             var cart = SessionHelper.Get<List<Item>>(HttpContext.Session, "cart");
-            if(cart == null)
+            if (cart == null)
             {
                 return View("View");
             }
             else
             ViewBag.cart = cart;
             ViewBag.gia = cart.Sum(item => (item.Product.DonGia * item.Quantity));
-            ViewBag.giamgia = cart.Sum(x => (x.Product.GiamGia*x.Product.DonGia)/100);
-            ViewBag.total = cart.Sum(item => (item.Product.DonGia * item.Quantity)-((item.Product.GiamGia)*(item.Product.DonGia))/100);
+            ViewBag.giamgia = cart.Sum(x => (x.Product.GiamGia * (x.Product.DonGia * x.Quantity)) / 100);
+            ViewBag.total = ViewBag.gia - ViewBag.giamgia;
             ViewBag.quantity = cart.Sum(item => item.Quantity);
             return View();
         }
@@ -281,8 +285,8 @@ namespace WebBanHang.Controllers
             oder.ShipEmail = user.Email;
             oder.CheckOutType = "Normal";
 
-            var subTotal = cart.Sum( item => (item.Product.DonGia * item.Quantity) );
-            var giamGia = cart.Sum( item => (item.Product.GiamGia * item.Product.DonGia * item.Quantity) / 100);
+            var subTotal = cart.Sum( item => item.Product.DonGia * item.Quantity );
+            var giamGia = cart.Sum( item => (item.Product.GiamGia * (item.Product.DonGia * item.Quantity)) / 100);
 
             oder.Total = Math.Round(subTotal - giamGia, 0);
             _orderId = oder.ID;
@@ -342,14 +346,16 @@ namespace WebBanHang.Controllers
                 Items = new List<item>()
             };
             //var total = Math.Round(cart.Sum(item => (item.Product.DonGia * item.Quantity) - ((item.Product.GiamGia) * (item.Product.DonGia)) / 100) / tyGiaUSD, 2);
-            var total = Math.Round(cart.Sum((item => (item.Product.DonGia * item.Quantity))) / tyGiaUSD, 2);
+            var total = cart.Sum(item => Math.Round(Math.Round(item.Product.DonGia / tyGiaUSD, 2) - Math.Round(Math.Round(item.Product.DonGia / tyGiaUSD, 2) * item.Product.GiamGia / 100, 2), 2) * item.Quantity);
+            var giam = Math.Round(cart.Sum(item => Math.Round(Math.Round(item.Product.DonGia / tyGiaUSD, 2) * item.Quantity * item.Product.GiamGia / 100, 2)), 2);
+            //var total = Math.Round(sub - giam, 2);
             foreach (var item in cart)
             {
                 itemList.Items.Add(new item()
                 {
                     Name = item.Product.TenHH,
                     Currency = "USD",
-                    Price = Math.Round(item.Product.DonGia / tyGiaUSD, 2).ToString(),
+                    Price = Math.Round(Math.Round(item.Product.DonGia / tyGiaUSD, 2) - Math.Round(Math.Round(item.Product.DonGia / tyGiaUSD, 2) * item.Product.GiamGia / 100 , 2), 2).ToString(),
                     Quantity = item.Quantity.ToString(),
                     Sku = "sku",
                     Tax = "0"
@@ -380,27 +386,33 @@ namespace WebBanHang.Controllers
                         },
                         ItemList = itemList,
                         Description = $"Invoice #{paypalOrderId}",
-                        InvoiceNumber = paypalOrderId.ToString()
+                        InvoiceNumber = paypalOrderId.ToString(),
+                        Payee = new Payee()
+                        {
+                            Email = _email,
+                            MerchantId = _merchantId
+                        }
                     }
                 },
                 RedirectUrls = new RedirectUrls()
                 {
                     CancelUrl = $"{hostname}/cart/that-bai",
-                    ReturnUrl = $"{hostname}/cart/hoan-thanh"
+                    ReturnUrl = $"{hostname}/cart/paypal-hoan-thanh"
                 },
                 Payer = new Payer()
                 {
                     PaymentMethod = "paypal"
                 }
+                
             };
-
+            
             #region Insert Order to Database
             var oder = new Oder();
             oder.ID = paypalOrderId;
-            oder.ShipAddress = "None";
+            oder.ShipAddress = "Paypal User";
             oder.ShipName = "Paypal User";
-            oder.ShipMobile = "None";
-            oder.ShipEmail = user.Email;
+            oder.ShipMobile = "Paypal User";
+            oder.ShipEmail = "Paypal User";
             oder.CheckOutType = "Paypal";
             oder.CustomerID = user.Id;
             oder.CreatedDate = DateTime.Now;
@@ -438,7 +450,6 @@ namespace WebBanHang.Controllers
                 return View("ThatBai");
             }
             #endregion
-
             PaymentCreateRequest request = new PaymentCreateRequest();
             request.RequestBody(payment);
 
@@ -480,16 +491,16 @@ namespace WebBanHang.Controllers
             var oder = new Oder();
             oder.ID = DateTime.Now.Ticks;
             oder.ShipName = "VNPay User";
-            oder.ShipMobile = "None";
-            oder.ShipAddress = "None";
-            oder.ShipEmail = user.Email;
+            oder.ShipMobile = "VNPay User";
+            oder.ShipAddress = "VNPay User";
+            oder.ShipEmail = "VNPay User";
             oder.CustomerID = user.Id;
             oder.CreatedDate = DateTime.Now;
             oder.CheckOutType = "VNPay";
 
             var cart = SessionHelper.Get<List<Item>>(HttpContext.Session, "cart");
-            var subTotal = cart.Sum(item => (item.Product.DonGia * item.Quantity));
-            var giamGia = cart.Sum(item => (item.Product.GiamGia * item.Product.DonGia * item.Quantity) / 100);
+            var subTotal = cart.Sum(item => item.Product.DonGia * item.Quantity);
+            var giamGia = cart.Sum(item => item.Product.GiamGia * (item.Product.DonGia * item.Quantity) / 100);
 
             oder.Total = Math.Round(subTotal - giamGia, 0);
 
@@ -518,6 +529,20 @@ namespace WebBanHang.Controllers
                 return View("ThatBai");
             }
 
+            var oderInfo = "";
+            foreach (var item in cart)
+            {
+                var itemGiamGia = item.Product.DonGia * item.Quantity * item.Product.GiamGia / 100;
+                var itemGia = item.Product.DonGia * item.Quantity - itemGiamGia;
+                oderInfo = oderInfo + item.Quantity.ToString() + " " + item.Product.TenHH + " " + itemGia.ToString() + "VND; ";
+            }
+
+            if(oderInfo.Length > 0)
+            {
+                oderInfo = oderInfo.Remove(oderInfo.Length - 2, 2);
+            }
+
+
             _vnPayLibrary.AddRequestData("vnp_Version", "2.0.0");
             _vnPayLibrary.AddRequestData("vnp_Command", "pay");
             _vnPayLibrary.AddRequestData("vnp_TmnCode", _tmnCode);
@@ -527,7 +552,7 @@ namespace WebBanHang.Controllers
             _vnPayLibrary.AddRequestData("vnp_CurrCode", "VND");
             _vnPayLibrary.AddRequestData("vnp_IpAddr", _utils.GetIpAddress());
             _vnPayLibrary.AddRequestData("vnp_Locale", "vn");
-            _vnPayLibrary.AddRequestData("vnp_OrderInfo", "Noi dung thanh toan:" + DateTime.Now.ToString("yyyyMMddHHmmss"));
+            _vnPayLibrary.AddRequestData("vnp_OrderInfo", oderInfo);
             _vnPayLibrary.AddRequestData("vnp_OrderType", "130001"); //default value: other
             _vnPayLibrary.AddRequestData("vnp_ReturnUrl", $"{hostname}/cart/ket-qua-vnpay");
             _vnPayLibrary.AddRequestData("vnp_TxnRef", oder.ID.ToString());
@@ -606,6 +631,73 @@ namespace WebBanHang.Controllers
         }
 
         [HttpGet]
+        [Route("paypal-hoan-thanh")]
+        public async Task<IActionResult> PayPalHoanThanh()
+        {
+            var model = _context.loais.ToList();
+            ViewBag.model = model;
+
+            var paymentId = Request.Query["paymentId"];
+            var payerId = Request.Query["PayerID"];
+            var token = Request.Query["token"];
+
+            var environment = new SandboxEnvironment(_clientId, _secretKey);
+            var client = new PayPalHttpClient(environment);
+
+            var paymentExecution = new PaymentExecution() { PayerId = payerId };
+            PaymentExecuteRequest request = new PaymentExecuteRequest(paymentId);
+            request.RequestBody(paymentExecution);
+
+            try
+            {
+                var response = await client.Execute(request);
+                var statusCode = response.StatusCode.ToString();
+                if(statusCode == "OK")
+                {
+                    if (_orderId == 0)
+                    {
+                        var orderId = SessionHelper.Get<long>(HttpContext.Session, "orderId");
+                        _orderId = orderId;
+
+                    }
+                    SessionHelper.Set(HttpContext.Session, "orderId", 0);
+
+                    var oder = _context.Oders.SingleOrDefault(m => m.ID == _orderId);
+
+                    if (oder == null)
+                    {
+                        return NotFound();
+                    }
+
+                    oder.Status = true;
+                    _context.Update(oder);
+                    _context.SaveChanges();
+                    SessionHelper.Set(HttpContext.Session, "cart", "");
+
+                    return View();
+                }
+                else
+                {
+                    return Redirect("/cart/that-bai");
+                }
+            }
+            catch (HttpException httpException)
+            {
+                var statusCode = httpException.StatusCode;
+                var debugId = httpException.Headers.GetValues("PayPal-Debug-Id").FirstOrDefault();
+
+                return Redirect("/cart/that-bai");
+            }
+            
+
+
+
+
+
+        }
+
+
+        [HttpGet]
         [Route("hoan-thanh")]
         public IActionResult HoanThanh()
         {
@@ -614,8 +706,7 @@ namespace WebBanHang.Controllers
 
             if(_orderId == 0)
             {
-                var orderId = SessionHelper.Get<long>(HttpContext.Session, "orderId");
-                _orderId = orderId;
+                return NotFound();
             }
             
             SessionHelper.Set(HttpContext.Session, "orderId", 0); 

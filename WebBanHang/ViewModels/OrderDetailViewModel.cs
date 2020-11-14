@@ -13,7 +13,6 @@ namespace WebBanHang.ViewModels
         public int Quantity { get; set; }
         public double Gia { get; set; }
         public int GiamGia { get; set; }
-        public int TongGiam { get; set; }
         public double ThanhTien { get; set; }
     }
 }

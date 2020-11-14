@@ -36,6 +36,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="OderID" />
         <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Details" asp-controller="Oders" asp-route-id="@Model.OderID">Back to List</a>
     </form>
 </div>
