@@ -189,6 +189,8 @@ namespace WebBanHang.Controllers
                                       Loai = C.TenLoai,
                                       Quantity = B.Quantity,
                                       Gia = B.Gia,
+                                      GiamGia = A.GiamGia,
+                                      ThanhTien = (B.Gia - B.Gia * A.GiamGia / 100) * B.Quantity
                                   }
                                  );
 

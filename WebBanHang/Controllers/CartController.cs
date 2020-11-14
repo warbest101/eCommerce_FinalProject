@@ -285,10 +285,9 @@ namespace WebBanHang.Controllers
             oder.ShipEmail = user.Email;
             oder.CheckOutType = "Normal";
 
-            var subTotal = cart.Sum( item => item.Product.DonGia * item.Quantity );
-            var giamGia = cart.Sum( item => (item.Product.GiamGia * (item.Product.DonGia * item.Quantity)) / 100);
+            var subTotal = cart.Sum(item => (item.Product.DonGia - item.Product.DonGia * item.Product.GiamGia / 100) * item.Quantity);
 
-            oder.Total = Math.Round(subTotal - giamGia, 0);
+            oder.Total = Math.Round(subTotal, 0);
             _orderId = oder.ID;
 
 
@@ -327,6 +326,8 @@ namespace WebBanHang.Controllers
 
         }
 
+
+        #region Paypal
         [Authorize]
         [Route("thanh-toan-paypal")]
         public async Task<IActionResult> ThanhToanPaypal()
@@ -417,10 +418,9 @@ namespace WebBanHang.Controllers
             oder.CustomerID = user.Id;
             oder.CreatedDate = DateTime.Now;
 
-            var subTotal = cart.Sum(item => (item.Product.DonGia * item.Quantity));
-            var giamGia = cart.Sum(item => (item.Product.GiamGia * item.Product.DonGia * item.Quantity) / 100);
+            var subTotal = cart.Sum(item => (item.Product.DonGia - item.Product.DonGia * item.Product.GiamGia / 100) * item.Quantity);
 
-            oder.Total = Math.Round(subTotal - giamGia, 0);
+            oder.Total = Math.Round(subTotal, 0);
 
             _orderId = oder.ID;
             SessionHelper.Set(HttpContext.Session, "orderId", _orderId);
@@ -481,6 +481,68 @@ namespace WebBanHang.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("paypal-hoan-thanh")]
+        public async Task<IActionResult> PayPalHoanThanh()
+        {
+            var model = _context.loais.ToList();
+            ViewBag.model = model;
+
+            var paymentId = Request.Query["paymentId"];
+            var payerId = Request.Query["PayerID"];
+
+            var environment = new SandboxEnvironment(_clientId, _secretKey);
+            var client = new PayPalHttpClient(environment);
+
+            var paymentExecution = new PaymentExecution() { PayerId = payerId };
+            PaymentExecuteRequest request = new PaymentExecuteRequest(paymentId);
+            request.RequestBody(paymentExecution);
+
+            try
+            {
+                var response = await client.Execute(request);
+                var statusCode = response.StatusCode.ToString();
+                if (statusCode == "OK")
+                {
+                    if (_orderId == 0)
+                    {
+                        var orderId = SessionHelper.Get<long>(HttpContext.Session, "orderId");
+                        _orderId = orderId;
+
+                    }
+                    SessionHelper.Set(HttpContext.Session, "orderId", 0);
+
+                    var oder = _context.Oders.SingleOrDefault(m => m.ID == _orderId);
+
+                    if (oder == null)
+                    {
+                        return NotFound();
+                    }
+
+                    oder.Status = true;
+                    _context.Update(oder);
+                    _context.SaveChanges();
+                    SessionHelper.Set(HttpContext.Session, "cart", "");
+
+                    return View();
+                }
+                else
+                {
+                    return Redirect("/cart/that-bai");
+                }
+            }
+            catch (HttpException httpException)
+            {
+                var statusCode = httpException.StatusCode;
+                var debugId = httpException.Headers.GetValues("PayPal-Debug-Id").FirstOrDefault();
+
+                return Redirect("/cart/that-bai");
+            }
+        }
+        #endregion
+
+        #region VN Pay
+
         [Authorize]
         [Route("thanh-toan-vnpay")]
         public async Task<IActionResult> ThanhToanVnPay()
@@ -499,10 +561,8 @@ namespace WebBanHang.Controllers
             oder.CheckOutType = "VNPay";
 
             var cart = SessionHelper.Get<List<Item>>(HttpContext.Session, "cart");
-            var subTotal = cart.Sum(item => item.Product.DonGia * item.Quantity);
-            var giamGia = cart.Sum(item => item.Product.GiamGia * (item.Product.DonGia * item.Quantity) / 100);
-
-            oder.Total = Math.Round(subTotal - giamGia, 0);
+            var subTotal = cart.Sum(item => (item.Product.DonGia - item.Product.DonGia * item.Product.GiamGia / 100) * item.Quantity );
+            oder.Total = Math.Round(subTotal);
 
             try
             {
@@ -532,8 +592,8 @@ namespace WebBanHang.Controllers
             var oderInfo = "";
             foreach (var item in cart)
             {
-                var itemGiamGia = item.Product.DonGia * item.Quantity * item.Product.GiamGia / 100;
-                var itemGia = item.Product.DonGia * item.Quantity - itemGiamGia;
+                var itemGiamGia = item.Product.DonGia * item.Product.GiamGia / 100;
+                var itemGia = Math.Round((item.Product.DonGia - itemGiamGia) * item.Quantity, 0);
                 oderInfo = oderInfo + item.Quantity.ToString() + " " + item.Product.TenHH + " " + itemGia.ToString() + "VND; ";
             }
 
@@ -625,76 +685,14 @@ namespace WebBanHang.Controllers
             return View();
         }
 
+        #endregion
+
         public async Task<IActionResult> xemdonhang()
         {
             return View(await _context.loais.ToListAsync());
         }
 
-        [HttpGet]
-        [Route("paypal-hoan-thanh")]
-        public async Task<IActionResult> PayPalHoanThanh()
-        {
-            var model = _context.loais.ToList();
-            ViewBag.model = model;
-
-            var paymentId = Request.Query["paymentId"];
-            var payerId = Request.Query["PayerID"];
-            var token = Request.Query["token"];
-
-            var environment = new SandboxEnvironment(_clientId, _secretKey);
-            var client = new PayPalHttpClient(environment);
-
-            var paymentExecution = new PaymentExecution() { PayerId = payerId };
-            PaymentExecuteRequest request = new PaymentExecuteRequest(paymentId);
-            request.RequestBody(paymentExecution);
-
-            try
-            {
-                var response = await client.Execute(request);
-                var statusCode = response.StatusCode.ToString();
-                if(statusCode == "OK")
-                {
-                    if (_orderId == 0)
-                    {
-                        var orderId = SessionHelper.Get<long>(HttpContext.Session, "orderId");
-                        _orderId = orderId;
-
-                    }
-                    SessionHelper.Set(HttpContext.Session, "orderId", 0);
-
-                    var oder = _context.Oders.SingleOrDefault(m => m.ID == _orderId);
-
-                    if (oder == null)
-                    {
-                        return NotFound();
-                    }
-
-                    oder.Status = true;
-                    _context.Update(oder);
-                    _context.SaveChanges();
-                    SessionHelper.Set(HttpContext.Session, "cart", "");
-
-                    return View();
-                }
-                else
-                {
-                    return Redirect("/cart/that-bai");
-                }
-            }
-            catch (HttpException httpException)
-            {
-                var statusCode = httpException.StatusCode;
-                var debugId = httpException.Headers.GetValues("PayPal-Debug-Id").FirstOrDefault();
-
-                return Redirect("/cart/that-bai");
-            }
-            
-
-
-
-
-
-        }
+        
 
 
         [HttpGet]
