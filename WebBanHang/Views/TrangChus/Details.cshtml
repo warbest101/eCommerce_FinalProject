@@ -22,7 +22,7 @@
                 <div class="product">
                     <div class="col-md-6">
                         <div class="image">
-                            <img src="~/Hinh/@Model.Hinh" width="300" height="300" /></a>
+                            <img src="~/Hinh/@Model.Hinh" width="300" height="300" />
 
                         </div>
                     </div>
@@ -118,7 +118,7 @@
                             <div class="col-lg-4 col-md-4 col-xs-12">
                                 <div class="product">
                                     <div class="image">
-                                        <a asp-action="Details" asp-route-id="@item.MaHH" asp-route-id2="@item.MaLoai"> <img src="~/Hinh/@item.Hinh" width="200" height="200" /></a>
+                                        <a asp-action="Details" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="200" height="200" /></a>
                                     </div>
 
 
@@ -156,7 +156,7 @@
                                 {
 
 
-                            <li> <a asp-action="Showsp" asp-route-id="@item.MaLoai"> @item.TenLoai</a></li>
+                            <li> <a asp-action="Showsp" asp-route-maloai="@item.MaLoai"> @item.TenLoai</a></li>
 
 
 
@@ -213,7 +213,7 @@
                             {
 
                                 <div class="image">
-                                    <a asp-action="Details" asp-route-id="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="150" height="150" /></a>
+                                    <a asp-action="Details" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="150" height="150" /></a>
                                 </div>
 
 

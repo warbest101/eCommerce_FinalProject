@@ -35,7 +35,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TenHH)
+                    <a asp-action="Details" asp-route-mahh="@item.MaHH">@item.TenHH</a>
                 </td>
                 <td>
                     <img src="~/Hinh/@item.Hinh" width="50" height="50" />

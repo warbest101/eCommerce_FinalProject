@@ -15,10 +15,10 @@ using WebBanHang.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WebBanHang.FriendlyUrl;
 
 namespace WebBanHang.Controllers
 {
-  
     public class TrangChusController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -44,7 +44,6 @@ namespace WebBanHang.Controllers
             _smsSender = smsSender;
         }
 
-       
         public async Task<IActionResult> Index(int page=1)
         {
             var query = _context.HangHoas.AsNoTracking().OrderByDescending(p => p.NgayDang);
@@ -57,107 +56,127 @@ namespace WebBanHang.Controllers
             var model3s = await PagingList.CreateAsync(model3, 4, page);
             ViewBag.model3s = model3s;
            
+
+
             return View(models);
         }
 
-       public async Task<IActionResult> showbaiviet()
+        public IActionResult showbaiviet()
         {
             var model = _context.loais.ToList();
             ViewBag.model = model;
 
             var loai = _context.BaiViet.ToList();
-                
+
 
             return View(loai);
         }
-        public async Task<IActionResult> GioiThieu()
+
+        public IActionResult GioiThieu()
         {
             var model = _context.loais.ToList();
             ViewBag.model = model;
 
-           
+            return View();
+        }
+
+        public IActionResult DieuKhoan()
+        {
+            var model = _context.loais.ToList();
+            ViewBag.model = model;
+
+            return View();
+        }
+
+        public IActionResult ChinhSach()
+        {
+            var model = _context.loais.ToList();
+            ViewBag.model = model;
 
 
             return View();
         }
-        public async Task<IActionResult> DieuKhoan()
+
+        //[Route("lien-he")]
+        public IActionResult Contact()
         {
             var model = _context.loais.ToList();
             ViewBag.model = model;
-
-
 
 
             return View();
         }
-        public async Task<IActionResult> ChinhSach()
+
+        //[Route("laptop/{tittle}")]
+        //[HttpGet("laptop/{title}-{id}", Name = "show-sp")]
+        public async Task<IActionResult> Showsp(int? maloai, string tenloai)
         {
-            var model = _context.loais.ToList();
+            var model = await _context.loais.ToListAsync();
             ViewBag.model = model;
 
-
-
-
-            return View();
-        }
-        public async Task<IActionResult> Contact()
-        {
-            var model = _context.loais.ToList();
-            ViewBag.model = model;
-
-
-
-
-            return View();
-        }
-        public async Task<IActionResult> Showsp(int? id)
-        {
-            var model = _context.loais.ToList();
-            ViewBag.model = model;
-           
-            var loai = _context.HangHoas
-                .Where(m => m.MaLoai == id).AsNoTracking().OrderBy(p => p.TenHH);
-      
-         
-
-           
-          
-            return View(loai);
-
-        }
-
-        public async Task<IActionResult> Details(int? id,int?id2,int page=1)
-        {
-            var model = _context.loais.ToList();
-            ViewBag.model = model;
-            if (id == null)
+            if(maloai == null)
             {
                 return NotFound();
             }
 
-            var loai = await _context.HangHoas
-                .FirstOrDefaultAsync(m => m.MaHH == id);
+            var hangHoas = _context.HangHoas
+                .Where(m => m.MaLoai == maloai).AsNoTracking().OrderBy(p => p.TenHH);
+
+            var loai = await _context.loais.FirstOrDefaultAsync(m => m.MaLoai == maloai);
+
+            if (loai == null) return NotFound();
+
+            string friendlyTitle = FriendlyUrlHelper.GetFriendlyTitle(loai.TenLoai);
+
+            if (!string.Equals(friendlyTitle, tenloai, StringComparison.Ordinal))
+            {
+                return RedirectToRoutePermanent("showsp", new { maloai, tenloai = friendlyTitle });
+            }
+
+
+            return View(hangHoas);
+
+        }
+
+        //[Route("laptop", Name = "show-sp-detail")]
+        public async Task<IActionResult> Details(int? mahh, string tenhh, int page=1 )
+        {
+            var model = _context.loais.ToList();
+            ViewBag.model = model;
+            if (mahh == null)
+            {
+                return NotFound();
+            }
+
+            var hangHoa = await _context.HangHoas.FirstOrDefaultAsync(m => m.MaHH == mahh);
+
+            var loai = await _context.loais.FirstOrDefaultAsync(m => m.MaLoai == hangHoa.MaLoai);
             var loai2 =  _context.HangHoas
-               .Where(m => m.MaLoai == id2).AsNoTracking().OrderByDescending(p => p.NgayDang);
+               .Where(m => m.MaLoai == hangHoa.MaLoai).AsNoTracking().OrderByDescending(p => p.NgayDang);
             var loai2s = await PagingList.CreateAsync(loai2, 6, page);
             ViewBag.loai2s = loai2s ;
             var loai3 = _context.HangHoas
-               .Where(m => m.MaLoai == id2).AsNoTracking().OrderBy(p => p.NgayDang);
+               .Where(m => m.MaLoai == hangHoa.MaLoai).AsNoTracking().OrderBy(p => p.NgayDang);
             var loai3s = await PagingList.CreateAsync(loai3, 5, page);
             ViewBag.loai3s = loai3s;
-
-
             var loai4 = _context.BaiViet
-              .Where(m => m.MaLoai == id2).AsNoTracking().OrderBy(p => p.ID);
+              .Where(m => m.MaLoai == hangHoa.MaLoai).AsNoTracking().OrderBy(p => p.ID);
             var loai4s = await PagingList.CreateAsync(loai4, 3, page);
             ViewBag.loai4s = loai4s;
 
-            if (loai == null)
+            if (hangHoa == null)
             {
                 return NotFound();
             }
 
-            return View(loai);
+            string friendlyTitle = FriendlyUrlHelper.GetFriendlyTitle(hangHoa.TenHH);
+
+            if (!string.Equals(friendlyTitle, tenhh, StringComparison.Ordinal))
+            {
+                return RedirectToRoutePermanent("showspdetail", new { mahh, tenhh = friendlyTitle});
+            }
+
+            return View(hangHoa);
         }
         
 
@@ -179,36 +198,46 @@ namespace WebBanHang.Controllers
             return View(contact);
         }
 
-        public async Task<IActionResult> XemBaiViet(int? id,int? id2,int page=1)
+        //[Route("bai-viet/{id2}/{id}")]
+        public async Task<IActionResult> XemBaiViet(int? id, string tieude,int page=1)
         {
             var model = _context.loais.ToList();
             ViewBag.model = model;
-            var loai3 = _context.HangHoas
-             .Where(m => m.MaLoai == id2).AsNoTracking().OrderBy(p => p.NgayDang);
-            var loai3s = await PagingList.CreateAsync(loai3, 5, page);
-            ViewBag.loai3s = loai3s;
 
-
-            var loai4 = _context.BaiViet
-              .Where(m => m.MaLoai == id2).AsNoTracking().OrderBy(p => p.ID);
-            var loai4s = await PagingList.CreateAsync(loai4, 3, page);
-            ViewBag.loai4s = loai4s;
-           
             if (id == null)
             {
                 return NotFound();
             }
 
-            var loai = await _context.BaiViet
-                .FirstOrDefaultAsync(m => m.ID == id);
-            
-         
-            if (loai == null)
+
+            var baiviet = await _context.BaiViet.FirstOrDefaultAsync(m => m.ID == id);
+
+            if (baiviet == null)
             {
                 return NotFound();
             }
 
-            return View(loai);
+
+            var loai3 = _context.HangHoas
+             .Where(m => m.MaLoai == baiviet.MaLoai).AsNoTracking().OrderBy(p => p.NgayDang);
+            var loai3s = await PagingList.CreateAsync(loai3, 5, page);
+            ViewBag.loai3s = loai3s;
+
+
+            var loai4 = _context.BaiViet
+              .Where(m => m.MaLoai == baiviet.MaLoai).AsNoTracking().OrderBy(p => p.ID);
+            var loai4s = await PagingList.CreateAsync(loai4, 3, page);
+            ViewBag.loai4s = loai4s;
+
+            string friendlyTitle = FriendlyUrlHelper.GetFriendlyTitle(baiviet.TieuDe);
+
+            if (!string.Equals(friendlyTitle, tieude, StringComparison.Ordinal))
+            {
+                return RedirectToRoutePermanent("xembaiviet", new { id, tieude = friendlyTitle });
+            }
+
+
+            return View(baiviet);
         }
 
         public IActionResult Search(string Keyword = "")
@@ -220,6 +249,7 @@ namespace WebBanHang.Controllers
             .ToList();
             return View(data);
         }
+
         public IActionResult JSONSearch(string Name = "", double? From = 0,
         double? To = double.MaxValue)
         {
@@ -262,8 +292,10 @@ namespace WebBanHang.Controllers
         }
 
         [HttpGet, AllowAnonymous]
-        public IActionResult Login()
+        public IActionResult Login(string customName)
         {
+            customName = "dang-nhap";
+
             var model = _context.loais.ToList();
             ViewBag.model = model;
             ViewBag.ReturnUrl = HttpContext.Request.Query["ReturnUrl"].ToString();
@@ -311,11 +343,13 @@ namespace WebBanHang.Controllers
             return View(loginModel);
  
         }//end Login POST
+
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login");
         }
+
         public IActionResult Create()
         {
             var model = _context.loais.ToList();
@@ -406,6 +440,7 @@ namespace WebBanHang.Controllers
             return RedirectToAction(nameof(VerifyCode));
         }
 
+        
         public ActionResult VerifyCode()
         {
             var model = _context.loais.ToList();

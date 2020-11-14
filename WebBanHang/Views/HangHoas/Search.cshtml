@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/Components/_AdminPage.cshtml";
 }
 <h3><a asp-action="TimKiem" asp-controller="HangHoas">Tìm kiếm nâng cao</a></h3>
 <h2>Tìm kiếm hàng hóa</h2>
@@ -25,33 +26,33 @@
         });
     </script>
 }
-    <script>
-        $("#btnTim").click(function () {
-            var ten = $("#txtTen").val().trim();
-            var giaTu = $("#txtGiaTu").val();
-            var giaDen = $("#txtGiaDen").val();
-            $.ajax({
-                url: "/HangHoas/JSONSearch",
-                type: "GET",
-                data: {
-                    "Name": ten, "From": giaTu, "To": giaDen
-                },
-                success: function (data) {
-                    //console.log(data);
-                    $("#content").html("");
-                    //duyệt qua từng phần tử của tập kết quả
-                    $(data).each(function (index, value) {
-                        //tạo thẻ tr
-                        var tr = $("<tr />");
-                        //tạo nội dung cho thẻ tr
-                        $("<td/>").html(index + 1).appendTo(tr);
-                        $("<td/>").html(value.TenHH).appendTo(tr);
-                        $("<td/>").html(value.DonGia).appendTo(tr);
-                        $("<td/>").html(value.Loai).appendTo(tr);
-                        //thêm vào tbody
-                        tr.appendTo("#content");
-                    });
-                }
-            });
+<script>
+    $("#btnTim").click(function () {
+        var ten = $("#txtTen").val().trim();
+        var giaTu = $("#txtGiaTu").val();
+        var giaDen = $("#txtGiaDen").val();
+        $.ajax({
+            url: "/HangHoas/JSONSearch",
+            type: "GET",
+            data: {
+                "Name": ten, "From": giaTu, "To": giaDen
+            },
+            success: function (data) {
+                //console.log(data);
+                $("#content").html("");
+                //duyệt qua từng phần tử của tập kết quả
+                $(data).each(function (index, value) {
+                    //tạo thẻ tr
+                    var tr = $("<tr />");
+                    //tạo nội dung cho thẻ tr
+                    $("<td/>").html(index + 1).appendTo(tr);
+                    $("<td/>").html(value.TenHH).appendTo(tr);
+                    $("<td/>").html(value.DonGia).appendTo(tr);
+                    $("<td/>").html(value.Loai).appendTo(tr);
+                    //thêm vào tbody
+                    tr.appendTo("#content");
+                });
+            }
         });
-    </script>
+    });
+</script>

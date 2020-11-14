@@ -130,7 +130,7 @@ namespace WebBanHang.Controllers
             return RedirectToAction("Index");
         }
 
-        [Route("buydetail/{id}")]
+        [Route("buy-detail/{id}")]
         public IActionResult BuyDetail(int id, int soluong)
         {
 
@@ -237,6 +237,8 @@ namespace WebBanHang.Controllers
             }
 
         }
+
+        #region Normal Checkout
         [HttpGet, Authorize]
         [Route("thanh-toan")]
         public async Task<IActionResult> ThanhToan()
@@ -325,9 +327,9 @@ namespace WebBanHang.Controllers
             return View("HoanThanh");
 
         }
+        #endregion
 
-
-        #region Paypal
+        #region Paypal Checkout
         [Authorize]
         [Route("thanh-toan-paypal")]
         public async Task<IActionResult> ThanhToanPaypal()
@@ -541,8 +543,7 @@ namespace WebBanHang.Controllers
         }
         #endregion
 
-        #region VN Pay
-
+        #region VNPay Checkout
         [Authorize]
         [Route("thanh-toan-vnpay")]
         public async Task<IActionResult> ThanhToanVnPay()

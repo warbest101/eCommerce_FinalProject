@@ -25,7 +25,7 @@
         <!-- Main Header -->
         <header class="main-header">
             <!-- Logo -->
-            <a href="/TrangChus" class="logo">
+            <a href="/" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>AP</b>T</span>
                 <!-- logo for regular state and mobile devices -->
@@ -121,6 +121,7 @@
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             @RenderBody()
+            @RenderSection("Scripts", required: false)
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->

@@ -17,6 +17,7 @@ using ReflectionIT.Mvc.Paging;
 using WebBanHang.Models;
 using WebBanHang.Services;
 using WebBanHang.VnPay;
+using WebBanHang.FriendlyUrl;
 
 namespace WebBanHang
 {
@@ -84,9 +85,116 @@ namespace WebBanHang
             app.UseSession();
             app.UseMvc(routes =>
             {
+
+
+
+                #region TrangChus
+
+                routes.MapRoute(
+                    name: "trangchu",
+                    template: "",
+                    defaults: new { controller = "TrangChus", action = "Index" }
+                );
+
+
+
+
+                routes.MapRoute(
+                    name: "contact",
+                    template: "lien-he",
+                    defaults: new { controller = "TrangChus", action = "Contact" }
+                );
+
+                routes.MapRoute(
+                    name: "showbaiviet",
+                    template: "bai-viet",
+                    defaults: new { controller = "TrangChus", action = "showbaiviet" }
+                );
+
+                routes.MapRoute(
+                    name: "xembaiviet",
+                    template: "bai-viet-{id}/{tieude}",
+                    defaults: new { controller = "TrangChus", action = "XemBaiViet" }
+                );
+
+                routes.MapRoute(
+                    name: "chinhsach",
+                    template: "chinh-sach",
+                    defaults: new { controller = "TrangChus", action = "ChinhSach" }
+                );
+
+                routes.MapRoute(
+                    name: "dieukhoan",
+                    template: "dieu-khoan",
+                    defaults: new { controller = "TrangChus", action = "DieuKhoan" }
+                );
+
+                routes.MapRoute(
+                    name: "dangnhap",
+                    template: "dang-nhap",
+                    defaults: new { controller = "TrangChus", action = "Login" }
+                );
+
+                routes.MapRoute(
+                    name: "dangky",
+                    template: "dang-ky",
+                    defaults: new { controller = "TrangChus", action = "Create" }
+                );
+
+                routes.MapRoute(
+                    name: "gioithieu",
+                    template: "gioi-thieu",
+                    defaults: new { controller = "TrangChus", action = "GioiThieu" }
+                );
+
+                routes.MapRoute(
+                    name: "showsp",
+                    template: "laptop-loai-{maloai}-{tenloai}",
+                    defaults: new { controller = "TrangChus", action = "Showsp" }
+                );
+
+                routes.MapRoute(
+                    name: "showspdetail",
+                    template: "laptop-id-{mahh}/{tenhh}",
+                    defaults: new { controller = "TrangChus", action = "Details" }
+                );
+
+
+                #endregion
+
+                routes.MapRoute(
+                    name: "manageaccount",
+                    template: "manage-account",
+                    defaults: new { controller = "ManageAccount", action = "ManageAccount" }
+                );
+
+                routes.MapRoute(
+                    name: "changepassword",
+                    template: "manage-account/change-password",
+                    defaults: new { controller = "ManageAccount", action = "ChangePassword" }
+                );
+
+                routes.MapRoute(
+                    name: "addphonenumber",
+                    template: "manage-account/add-phone-number",
+                    defaults: new { controller = "ManageAccount", action = "AddPhoneNumber" }
+                );
+
+                routes.MapRoute(
+                    name: "verifyphonenumber",
+                    template: "manage-account/verify-phone-number",
+                    defaults: new { controller = "ManageAccount", action = "VerifyPhoneNumber" }
+                );
+
+
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=TrangChus}/{action=Index}/{id?}");
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "TrangChus", action = "Index" }
+                );
+
+
+
             });
             
         }

@@ -133,12 +133,7 @@
                                     <li>
                                         @foreach (var item in ViewBag.model)
                                         {
-
-
-                                            <a asp-action="Showsp" asp-route-id="@item.MaLoai"> @item.TenLoai</a>
-
-
-
+                                            <a asp-action="Showsp" asp-controller="TrangChus" asp-route-maloai="@item.MaLoai" > @item.TenLoai</a>
                                         }
                                     </li>
                                 </ul>

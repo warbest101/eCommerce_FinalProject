@@ -17,9 +17,9 @@
             {
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="product">
-
+                        
                         <div class="image">
-                            <a asp-action="Details" asp-route-id="@item.MaHH" asp-route-id2="@item.MaLoai"> <img src="~/Hinh/@item.Hinh" width="200" height="20" /></a>
+                            <a asp-action="Details" asp-controller="TrangChus" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="200" height="20" /></a>
                         </div>
 
                         <div class="buttons">
@@ -62,7 +62,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="product">
                         <div class="image">
-                            <a asp-action="Details" asp-route-id="@item.MaHH" asp-route-id2="@item.MaLoai"> <img src="~/Hinh/@item.Hinh" width="250" height="250" /></a>
+                            <a asp-action="Details" asp-controller="TrangChus" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="250" height="250" /></a>
                         </div>
                         <div class="buttons">
                             <a class="btn cart" asp-action="buy" asp-controller="cart" asp-route-id="@item.MaHH"><span class="glyphicon glyphicon-shopping-cart"></span></a>
@@ -92,7 +92,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="product">
                         <div class="image">
-                            <a asp-action="Details" asp-route-id="@item.MaHH" asp-route-id2="@item.MaLoai"> <img src="~/Hinh/@item.Hinh" width="250" height="250" /></a>
+                            <a asp-action="Details" asp-controller="TrangChus" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="250" height="250" /></a>
                         </div>
                         <div class="buttons">
                             <a class="btn cart" asp-action="buy" asp-controller="cart" asp-route-id="@item.MaHH"><span class="glyphicon glyphicon-shopping-cart"></span></a>
