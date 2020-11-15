@@ -1,14 +1,14 @@
 ﻿
 @{
-    ViewData["Title"] = "TimKiem";
+    ViewData["Title"] = "Advance Search";
     Layout = "~/Views/Shared/Layout_Sanpham.cshtml";
 }
 
 <h2>Tìm Kiếm Nâng Cao</h2>
 
 <input type="text" id="txtTen" placeholder="Nhập tên" /><br />
-Giá từ <input type="number" min="0" id="txtGiaTu" />
-đến <input type="number" min="0" id="txtGiaDen" />
+Giá từ <input type="number" min="0" id="txtGiaTu" value="0"/>
+đến <input type="number" min="0" id="txtGiaDen" value="100000000"/>
     <input type="button" id="btnTim" value="Tìm" />
 <h2>Kết quả</h2>
 <table class="table table-condensed">
@@ -16,7 +16,9 @@ Giá từ <input type="number" min="0" id="txtGiaTu" />
         <tr>
             <th>STT</th>
             <th>Tên hàng hóa</th>
+            <th>Hình</th>
             <th>Đơn giá</th>
+            <th>Giảm giá</th>
             <th>Loại</th>
         </tr>
     </thead>
@@ -43,9 +45,20 @@ Giá từ <input type="number" min="0" id="txtGiaTu" />
                         var tr = $("<tr />");
                         //tạo nội dung cho thẻ tr
                         $("<td/>").html(index + 1).appendTo(tr);
-                        $("<td/>").html(value.tenHH).appendTo(tr);
-                       
-                        $("<td/>").html(value.donGia + "đ").appendTo(tr);
+                        $("<td/>").html
+                            (
+                                '<a href="@Context.Request.Scheme://@Context.Request.Host/laptop-id-' + value.maHH + '/' + value.tenHH + '" >'
+                                    + value.tenHH + 
+                                '</a>'
+                            ).appendTo(tr);
+                        $("<td/>").html
+                            (
+                                '<a href="@Context.Request.Scheme://@Context.Request.Host/laptop-id-' + value.maHH + '/' + value.tenHH + '" >'
+                                    + '<img src="/Hinh/' + value.hinh + '" width="100" height="100"/>' +
+                                '</a>'
+                            ).appendTo(tr);
+                        $("<td/>").html(value.donGia + "VND").appendTo(tr);
+                        $("<td/>").html(value.giamGia + "%").appendTo(tr);
                         $("<td/>").html(value.loai).appendTo(tr);
                         //thêm vào tbody
                         tr.appendTo("#content");

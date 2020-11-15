@@ -272,7 +272,7 @@ namespace WebBanHang.Controllers
             if(user.PhoneNumber == null)
             {
                 ViewBag.NoPhoneNumber = "You dont have Phone Number. Pleave add your Phone Number in Manage Account.";
-                //return View();
+                return View();
             }
 
             var cart = SessionHelper.Get<List<Item>>(HttpContext.Session, "cart");
@@ -608,7 +608,7 @@ namespace WebBanHang.Controllers
             _vnPayLibrary.AddRequestData("vnp_Command", "pay");
             _vnPayLibrary.AddRequestData("vnp_TmnCode", _tmnCode);
             _vnPayLibrary.AddRequestData("vnp_Amount", (oder.Total * 100).ToString());
-            _vnPayLibrary.AddRequestData("vnp_BankCode", "NCB");
+            _vnPayLibrary.AddRequestData("vnp_BankCode", "");
             _vnPayLibrary.AddRequestData("vnp_CreateDate", oder.CreatedDate.ToString("yyyyMMddHHmmss"));
             _vnPayLibrary.AddRequestData("vnp_CurrCode", "VND");
             _vnPayLibrary.AddRequestData("vnp_IpAddr", _utils.GetIpAddress());

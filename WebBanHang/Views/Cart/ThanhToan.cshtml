@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "thanh toan";
+    ViewData["Title"] = "Thanh toán";
     Layout = "~/Views/Shared/Layout_Sanpham.cshtml";
 }
 @ViewData["Message"];
@@ -31,10 +31,15 @@
             }
         </div>
 
-        <span class="text-danger">@ViewBag.NoPhoneNumber</span><br />
+        <span class="text-danger">@ViewBag.NoPhoneNumber</span><br /><br />
         <button type="submit" class="btn btn-1">Thanh toán</button>
-        <a asp-action="ThanhToanPaypal" class="btn btn-1">Paypal CheckOut</a>
-        <a asp-action="ThanhToanVnPay" class="btn btn-1">VNPay CheckOut</a>
+        <a asp-action="ThanhToanVnPay">
+            <img src="~/Hinh/vn-pay.jpg" alt="Check out with VNPay" width="150" />
+        </a>
+        <a asp-action="ThanhToanPaypal">
+            <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
+        </a>
+
         <br />
         <br />
         <br />

@@ -17,7 +17,6 @@ using ReflectionIT.Mvc.Paging;
 using WebBanHang.Models;
 using WebBanHang.Services;
 using WebBanHang.VnPay;
-using WebBanHang.FriendlyUrl;
 
 namespace WebBanHang
 {
@@ -52,16 +51,17 @@ namespace WebBanHang
             services.AddPaging();
             #pragma warning restore CS0618 // Type or member is obsolete
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(
-                    options => { options.LoginPath = "/TrangChus/Login"; options.AccessDeniedPath = "/TrangChus/Access"; }
+                    options => { options.LoginPath = "/dang-nhap"; options.AccessDeniedPath = "/TrangChus/Access"; }
                 );
-            services.ConfigureApplicationCookie(options => options.LoginPath = "/TrangChus/Login");
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/dang-nhap");
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddTransient<IUtils, Utils>();
             services.AddTransient<IVnPayLibrary, VnPayLibrary>();
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
-            services.Configure<SMSoptions>(Configuration);
+            services.Configure<SMSoptions>(Configuration); 
+
         }
 
 
@@ -97,6 +97,18 @@ namespace WebBanHang
                 );
 
 
+
+                routes.MapRoute(
+                    name: "search",
+                    template: "search",
+                    defaults: new { controller = "TrangChus", action = "Search" }
+                );
+
+                routes.MapRoute(
+                    name: "advancesearch",
+                    template: "advance-search",
+                    defaults: new { controller = "TrangChus", action = "TimKiem" }
+                );
 
 
                 routes.MapRoute(
@@ -186,6 +198,11 @@ namespace WebBanHang
                     defaults: new { controller = "ManageAccount", action = "VerifyPhoneNumber" }
                 );
 
+                routes.MapRoute(
+                    name: "admin",
+                    template: "admin",
+                    defaults: new { controller = "Admin", action = "Profile" }
+                );
 
                 routes.MapRoute(
                     name: "default",

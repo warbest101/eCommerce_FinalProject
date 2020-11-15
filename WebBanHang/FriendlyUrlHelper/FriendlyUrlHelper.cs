@@ -2,18 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace WebBanHang.FriendlyUrl
 {
     public static class FriendlyUrlHelper
     {
+        public static string convertToUnSign3(string s)
+        {
+            Regex regex = new Regex("\\p{IsCombiningDiacriticalMarks}+");
+            string temp = s.Normalize(NormalizationForm.FormD);
+            return regex.Replace(temp, string.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
+        }
+
         public static string GetFriendlyTitle(string title, bool remapToAscii = false, int maxlength = 80)
         {
             if (title == null)
             {
                 return string.Empty;
             }
+
+            title = convertToUnSign3(title);
 
             int length = title.Length;
             bool prevdash = false;

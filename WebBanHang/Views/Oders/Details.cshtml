@@ -16,7 +16,14 @@
             @Html.DisplayNameFor(model => model.Status)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Status)
+            @if (Model.Status)
+            {
+                <p>Thành công</p>
+            }
+            else
+            {
+                <p>Thất bại</p>
+            }
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.CheckOutType)
@@ -40,7 +47,8 @@
             @Html.DisplayNameFor(model => model.ShipMobile)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ShipMobile)
+            @(Model.ShipMobile ?? "None")
+
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ShipAddress)
@@ -59,12 +67,6 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Total)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Total)
         </dd>
     </dl>
 </div>
@@ -99,33 +101,42 @@
     <tbody>
         @foreach (var item in ViewBag.oderDetail)
         {
-        <tr>
-            <td>
-                @item.TenHH
-            </td>
-            <td>
-                @item.Loai
-            </td>
-            <td>
-                @item.Quantity
-            </td>
-            <td>
-                @item.Gia
-            </td>
-            <td>
-                @(item.GiamGia)%
-            </td>
-            <td>
-                @item.ThanhTien
-            </td>
-            <td>
-                <a asp-action="Delete" asp-controller="OderDetails" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @item.TenHH
+                </td>
+                <td>
+                    @item.Loai
+                </td>
+                <td>
+                    @item.Quantity
+                </td>
+                <td>
+                    @item.Gia
+                </td>
+                <td>
+                    @(item.GiamGia)%
+                </td>
+                <td>
+                    @item.ThanhTien
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-controller="OderDetails" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="row">
+    <div class="pricedetails">
+        <div class="col-md-4 col-md-offset-8">
+
+            <h3>TOTAL: @(Model.Total)VND</h3>
+
+        </div>
+    </div>
 </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>

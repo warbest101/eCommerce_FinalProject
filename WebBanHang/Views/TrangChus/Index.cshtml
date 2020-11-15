@@ -4,7 +4,7 @@
 @addTagHelper *,ReflectionIT.Mvc.Paging
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Laptop Shop Nhóm 17";
     Layout = "~/Views/Shared/Layout_TrangChu.cshtml";
 }
 
@@ -19,7 +19,7 @@
                     <div class="product">
                         
                         <div class="image">
-                            <a asp-action="Details" asp-controller="TrangChus" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="200" height="20" /></a>
+                            <a asp-action="Details" asp-controller="TrangChus" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="200" height="20" alt="Just imported @item.TenHH" /></a>
                         </div>
 
                         <div class="buttons">
@@ -44,10 +44,10 @@
 <div class="row">
     <div class="banner">
         <div class="col-sm-6">
-            <img src="images/sub4.jpg" />
+            <img src="images/sub4.jpg" alt="Fourth banner"/>
         </div>
         <div class="col-sm-6">
-            <img src="~/images/sub5.jpg" />
+            <img src="~/images/sub5.jpg" alt="Fifth banner"/>
         </div>
     </div>
 </div>
@@ -62,7 +62,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="product">
                         <div class="image">
-                            <a asp-action="Details" asp-controller="TrangChus" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="250" height="250" /></a>
+                            <a asp-action="Details" asp-controller="TrangChus" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="250" height="250" alt="Best seller @item.TenHH" /></a>
                         </div>
                         <div class="buttons">
                             <a class="btn cart" asp-action="buy" asp-controller="cart" asp-route-id="@item.MaHH"><span class="glyphicon glyphicon-shopping-cart"></span></a>
@@ -92,7 +92,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="product">
                         <div class="image">
-                            <a asp-action="Details" asp-controller="TrangChus" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="250" height="250" /></a>
+                            <a asp-action="Details" asp-controller="TrangChus" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="250" height="250" alt="Laptop hot product @item.TenHH" /></a>
                         </div>
                         <div class="buttons">
                             <a class="btn cart" asp-action="buy" asp-controller="cart" asp-route-id="@item.MaHH"><span class="glyphicon glyphicon-shopping-cart"></span></a>

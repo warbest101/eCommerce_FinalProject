@@ -124,6 +124,8 @@ namespace WebBanHang.Controllers
 
             var loai = await _context.loais.FirstOrDefaultAsync(m => m.MaLoai == maloai);
 
+            ViewData["TenLoai"] = loai.TenLoai;
+
             if (loai == null) return NotFound();
 
             string friendlyTitle = FriendlyUrlHelper.GetFriendlyTitle(loai.TenLoai);
@@ -240,11 +242,11 @@ namespace WebBanHang.Controllers
             return View(baiviet);
         }
 
-        public IActionResult Search(string Keyword = "")
+        public IActionResult Search(string query = "")
         {
             var model = _context.loais.ToList();
             ViewBag.model = model;
-            var data = _context.HangHoas.Where(p => p.TenHH.Contains(Keyword))
+            var data = _context.HangHoas.Where(p => p.TenHH.Contains(query))
           .Include(p => p.Loai)
             .ToList();
             return View(data);
@@ -256,9 +258,11 @@ namespace WebBanHang.Controllers
             var data = _context.HangHoas.Where(p => p.TenHH.Contains(Name) &&
            p.DonGia >= From && p.DonGia <= To)
             .Select(p => new {
+                MaHH = p.MaHH,
                 TenHH = p.TenHH,
                 DonGia = p.DonGia,
                 Loai = p.Loai.TenLoai,
+                GiamGia = p.GiamGia,
                 Hinh = p.Hinh
             
             });
@@ -292,9 +296,8 @@ namespace WebBanHang.Controllers
         }
 
         [HttpGet, AllowAnonymous]
-        public IActionResult Login(string customName)
+        public IActionResult Login()
         {
-            customName = "dang-nhap";
 
             var model = _context.loais.ToList();
             ViewBag.model = model;
@@ -362,7 +365,7 @@ namespace WebBanHang.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,Email,Password")] User user)
+        public async Task<IActionResult> Create([Bind("Id,UserName,Email,Password,PhoneNumber,Enable2FA")] User user)
         {
             var model = _context.loais.ToList();
             ViewBag.model = model;

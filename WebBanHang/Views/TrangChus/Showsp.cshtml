@@ -2,7 +2,7 @@
 @model IEnumerable<WebBanHang.Models.HangHoa>
 
 @{
-    ViewData["Title"] = "Showsp";
+    ViewData["Title"] = "Laptop " + ViewData["TenLoai"];
     Layout = "~/Views/Shared/Layout_Sanpham.cshtml";
 }
 
@@ -20,7 +20,7 @@
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="product">
                                 <div class="image" style="width:180px; height:180px">
-                                    <a asp-action="Details" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" /></a>
+                                    <a asp-action="Details" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" alt="@item.Loai.TenLoai Product @item.MaHH"/></a>
                                 </div>
 
 

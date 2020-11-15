@@ -1,6 +1,6 @@
 ﻿@model WebBanHang.Models.BaiViet
 @{
-    ViewData["Title"] = "XemBaiViet";
+    ViewData["Title"] = Model.TieuDe;
     Layout = "~/Views/Shared/Layout_Sanpham.cshtml";
 }
 
@@ -26,7 +26,7 @@
                     <div class="col-md-6">
                         <div class="caption">
                             <div class="image">
-                                <img src="~/Hinh/@Html.DisplayFor(modelItem => Model.Hinh)">
+                                <img src="~/Hinh/@Html.DisplayFor(modelItem => Model.Hinh)" alt="Bài viết @Model.TieuDe">
                             </div>
                             <div class="name"><h3>@Html.DisplayFor(modelItem => Model.TieuDe)</h3></div>
                             <div class="info">
@@ -67,7 +67,7 @@
                     </ul>
                     <div class="tab-content">
                         <div id="description" class="tab-pane fade in active">
-                         
+
                         </div>
                         <div id="review" class="tab-pane fade">
                             <div class="review-text">
@@ -93,12 +93,20 @@
                         </div>
                     </div>
                 </div>
-           
-         
-                
-               
-             
+
+
+
+
+
             </div>
         </div>
     </div>
-</div>	
+</div>
+
+@section metasocials{
+    <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Laptop @Model.TieuDe" />
+    <meta property="og:description" content="@Model.NoiDung" />
+    <meta property="og:image" content="@Context.Request.Scheme://@Context.Request.Host/Hinh/@Model.Hinh" />
+}

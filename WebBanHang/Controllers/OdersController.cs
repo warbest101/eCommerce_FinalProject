@@ -53,27 +53,27 @@ namespace WebBanHang.Controllers
 
             var subOderDetail = await _context.OderDetails.Where(m => m.OderID == oder.ID).ToListAsync();
 
-            if(subOderDetail == null)
+            if (subOderDetail != null)
             {
-                return NotFound();
+
+                var oderDetail = (from A in _context.HangHoas
+                                  join B in subOderDetail on A.MaHH equals B.MaHH
+                                  join C in _context.loais on A.MaLoai equals C.MaLoai
+                                  select new OrderDetailViewModel
+                                  {
+                                      ID = B.ID,
+                                      TenHH = A.TenHH,
+                                      Loai = C.TenLoai,
+                                      Quantity = B.Quantity,
+                                      GiamGia = A.GiamGia,
+                                      Gia = B.Gia,
+                                      ThanhTien = Math.Round((B.Gia - B.Gia * A.GiamGia / 100) * B.Quantity, 0)
+                                  }
+                                     );
+
+
+                ViewBag.oderDetail = await oderDetail.ToListAsync();
             }
-
-            var oderDetail = (from A in _context.HangHoas
-                                      join B in subOderDetail on A.MaHH equals B.MaHH
-                                      join C in _context.loais on A.MaLoai equals C.MaLoai
-                                      select new OrderDetailViewModel
-                                      {
-                                          ID = B.ID,
-                                          TenHH = A.TenHH,
-                                          Loai = C.TenLoai,
-                                          Quantity = B.Quantity,
-                                          GiamGia = A.GiamGia,
-                                          Gia = B.Gia,
-                                          ThanhTien = Math.Round( (B.Gia * B.Quantity) - ( (B.Gia * B.Quantity) * A.GiamGia / 100), 0)
-                                      }   
-                                 );
-
-            ViewBag.oderDetail = await oderDetail.ToListAsync();
 
             return View(oder);
         }

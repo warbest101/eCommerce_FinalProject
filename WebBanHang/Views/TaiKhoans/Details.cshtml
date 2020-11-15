@@ -29,6 +29,32 @@
         <dd>
             @Html.DisplayFor(model => model.Password)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd>
+            @if (Model.PhoneNumber == null)
+            {
+                <p>None</p>
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.PhoneNumber)
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Enable2FA)
+        </dt>
+        <dd>
+            @if (Model.Enable2FA)
+            {
+                <p>Enabled</p>
+            }
+            else
+            {
+                <p>Disabled</p>
+            }
+        </dd>
     </dl>
 </div>
 <div>

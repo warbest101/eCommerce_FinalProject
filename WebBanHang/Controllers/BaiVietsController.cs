@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using ReflectionIT.Mvc.Paging;
 using WebBanHang.Models;
 
 namespace WebBanHang.Controllers
@@ -24,13 +25,15 @@ namespace WebBanHang.Controllers
         }
 
         // GET: BaiViets
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
             if (User.Identity.Name != admin)
             {
                 return RedirectToAction("Index", "TrangChus");
             }
-            return View(await _context.BaiViet.ToListAsync());
+            var query = _context.BaiViet.Include(p => p.loai).AsNoTracking().OrderBy(p => p.ID);
+            var model = await PagingList.CreateAsync(query, 10, page);
+            return View(model);
         }
 
         // GET: BaiViets/Details/5
@@ -41,7 +44,7 @@ namespace WebBanHang.Controllers
                 return NotFound();
             }
 
-            var baiViet = await _context.BaiViet
+            var baiViet = await _context.BaiViet.Include(p => p.loai)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (baiViet == null)
             {
@@ -97,7 +100,8 @@ namespace WebBanHang.Controllers
                 return NotFound();
             }
 
-            var baiViet = await _context.BaiViet.FindAsync(id);
+            var baiViet = await _context.BaiViet.Include(p => p.loai).FirstOrDefaultAsync(p => p.ID == id);
+            ViewData["MaLoai"] = new SelectList(_context.loais, "MaLoai", "TenLoai");
             if (baiViet == null)
             {
                 return NotFound();
@@ -160,7 +164,7 @@ namespace WebBanHang.Controllers
                 return NotFound();
             }
 
-            var baiViet = await _context.BaiViet
+            var baiViet = await _context.BaiViet.Include(p => p.loai)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (baiViet == null)
             {

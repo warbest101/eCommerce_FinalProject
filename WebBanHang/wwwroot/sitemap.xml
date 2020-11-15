@@ -8,823 +8,463 @@
 
 
 <url>
-  <loc>http://test12.somee.com/</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Create</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/dang-ky</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Login</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/dang-nhap</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/cart/index</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/cart/index</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Showsp/1</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/gioi-thieu</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Showsp/2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/dieu-khoan</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Showsp/3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/chinh-sach</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Showsp/4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Showsp/5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/lien-he</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Showsp/6</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-85/msi-ps63-8mo-099vn</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Showsp/7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-84/msi-gf75-9rcx</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/GioiThieu</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-83/msi-ps42-8mo-250vn</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/DieuKhoan</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-82/msi-modern-14-a10m</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/ChinhSach</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-1/apple-macbook-air-2017</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/showbaiviet</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-8/apple-macbook-pro-touch-2019-i9</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Contact</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-24/asus-gaming-rog-strix-g531</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/85?id2=6</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-35/acer-switch-5-sw512-52p-34rs</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/84?id2=6</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-37/acer-swift-7-sf714-52t-76c6</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/83?id2=6</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-50/hp-palivion-15-cx0182tx</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/82?id2=6</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-52/hp-elitebook-x360-14</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/2?id2=1</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-66/dell-xps-13-9370</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/8?id2=1</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-79/lenovo-legion-y530-15</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/24?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/35?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/37?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/50?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/52?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/66?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/79?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/1?id2=1</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/3?id2=1</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/6?id2=1</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/4?id2=1</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/5?id2=1</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/7?id2=1</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/60?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/64?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/54?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/56?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/58?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/62?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/59?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/55?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/53?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/57?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/61?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/63?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/65?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/22?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/20?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/12?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/16?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/18?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/17?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/11?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/19?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/10?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/9?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/13?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/14?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/15?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/23?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/21?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/67?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/76?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/74?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/71?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/75?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/73?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/72?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/69?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/70?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/68?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/78?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/77?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/40?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/39?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/41?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/51?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/47?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/49?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/48?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/44?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/43?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/42?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/45?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/46?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/80?id2=6</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/81?id2=6</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/27?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/26?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/25?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/28?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/31?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://test12.somee.com/TrangChus/Details/32?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-1/msi-cong-bo-laptop-choi-game-alpha-15-dau-tien-trang-bi-cong-nghe-7nm</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/38?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-2/lenovo-yoga-s740-len-ke-the-gioi-di-dong-gia-khoi-diem-24-trieu</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/33?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-3/hp-15s-du0068tx-chiec-laptop-mong-nhe-cau-hinh-manh-me-voi-muc-gia-sieu-%E2%80%9Choi%E2%80%99%E2%80%99</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/29?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-4/lenovo-ra-mat-thinkbook-14-15-huong-den-doanh-nghiep-vua-va-nho</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/34?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-5/asus-gioi-thieu-series-laptop-x409-x509-nho-gon</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/30?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-6/ra-mat-hp-envy-phien-ban-go-tu-nhien</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/36?id2=7</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-7/ra-mat-hp-pavilion-gaming-15-danh-cho-game-thu</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%201?id2=%206</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-8/dell-ket-hop-cung-marvel-studios-ra-mat-g-series</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%202?id2=%204</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-9/dell-ra-mat-dong-laptop-chuyen-game-g-series-gia-tu-23-trieu-dong</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%203?id2=%205</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-10/apple-%E2%80%98chia-tay%E2%80%99-intel-dung-chip-tu-san-xuat-cho-may-mac-tuong-lai</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%204?id2=%204</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-11/apple-mo-ban-macbook-pro-13-inch-hang-tan-trang-voi-gia-hop-ly</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%205?id2=%203</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-12/dell-ban-laptop-khong-bat-intel-management-engine</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%206?id2=%205</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-13/asus-zenbook-ux430-ra-mat-ban-mau-vang-gold-gia-tu-22-5-trieu-dong</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%207?id2=%205</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/bai-viet-14/lenovo-ra-mat-3-mau-laptop-di-dong-yoga-520-720-va-ideapad-320s-gia-tu-11-trieu</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%208?id2=%202</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-81/msi-gl63-8rcs-068vn</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%209?id2=%202</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-80/msi-gaming-15-gf63-9sc</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%2010?id2=%201</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-7/apple-macbook-pro-touch-2019-i7</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%2011?id2=%201</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-6/apple-macbook-pro-touch-2018</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%2012?id2=%202</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-5/apple-macbook-pro-touch-2019-i5-256gb</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%2013?id2=%203</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-4/apple-macbook-pro-touch-2019-i5-128gb</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/%2014?id2=%204</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-3/apple-macbook-air-2018</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/1?id2=6</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-2/apple-macbook-air-2019</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/80</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-23/asus-zenbook-13-ux333fn</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/81</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-22/asus-gaming-fx505ge</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/82</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-21/asus-zenbook-14-ux433fa</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/83</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-20/asus-gaming-tuf-fx505d-r7</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/84</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-19/asus-vivobook-x407ub</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/10?id2=1</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-9/asus-vivobook-x507ma</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/11?id2=1</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-10/asus-vivobook-x441ma</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/1</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-11/asus-vivobook-x407ua</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-12/asus-vivobook-14-x407ua</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-13/asus-vivobook-x507ua</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-38/acer-nitro-an515-54-52ez</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-36/acer-swit-5-sf514-53t-740r</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/5?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-34/acer-swift-3-sf314-54-51ql</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/13?id2=3</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-33/acer-spin-3-sp314-51-39wk</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/9</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-25/acer-aspire-a315-34-c2h9</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/10</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-26/acer-aspire-3-a315-54k-30fk</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/11</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-27/acer-aspire-3-a315-42-r2ns-r3</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/12</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-28/acer-aspire-a315-54-3501</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/13</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-29/acer-swift-1-sf114-32-p2sg</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/25</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-51/hp-elitebook-x360-1030-g3</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/26</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-49/hp-envy-13-aq0027tu</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/27</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-48/hp-envy-x360-ar0071au-r5</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/28</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-47/hp-envy-13-ah1011tu</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/29</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-39/hp-15-da0359tu-n4417</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/3?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-40/hp-14-ck0068tu</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/6?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-41/hp-348-g5</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/7?id2=5</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-42/hp-pavilon-14-ce2035tu</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/39</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-43/hp-pavilion-x360-ad104tu</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/40</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-65/dell-xps-13-7390</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/41</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-64/dell-inspiron-15-5584</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/42</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-63/dell-vostro-5581</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/43</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-62/dell-inspiron-5593</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/8?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-61/dell-vostro-3580</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/9?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-53/dell-vostro-3568</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/12?id2=2</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-54/dell-inspiron-3576</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/53</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-55/dell-vostro-14-3481</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/54</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-56/dell-inspiron-3581</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/55</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-57/dell-vostro-3580</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/56</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-78/lenovo-yoga-s730-13iwl</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/57</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-77/lenovo-yoga-s740-14iil</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/2?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-76/lenovo-ideapad-330-15</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/4?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-75/lenovo-ideapad-l340-15irh</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/XemBaiViet/14?id2=4</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-74/lenovo-ideapad-530s-14ikb</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/67</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-67/lenovo-ideapad-330-14ikb</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/68</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-68/lenovo-yoga-520-14ikb</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/69</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-69/lenovo-ideapad-s340-14iwl</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/70</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-70/lenovo-ideapad-yoga-530-14ikb</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://test12.somee.com/TrangChus/Details/71</loc>
-  <lastmod>2019-12-18T09:38:59+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-71/lenovo-ideapad-c340-14iwl</loc>
+  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 

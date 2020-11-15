@@ -61,7 +61,16 @@ namespace WebBanHang.Controllers
             */
 
             var result = await _userManager.FindByIdAsync(id);
-            User _user = new User { Id = result.Id, UserName = result.UserName, Email = result.Email , Password = result.Password};
+            User _user = new User {
+                Id = result.Id,
+                UserName = 
+                result.UserName,
+                Email = result.Email ,
+                Password = result.Password,
+                PhoneNumber = result.PhoneNumber,
+                Enable2FA = result.TwoFactorEnabled
+            };
+
             if (_user == null)
             {
                 return NotFound();
@@ -85,7 +94,7 @@ namespace WebBanHang.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,Email,Password")] User user)
+        public async Task<IActionResult> Create([Bind("Id,UserName,Email,Password,PhoneNumber,Enable2FA")] User user)
         {
 
             if (ModelState.IsValid)
@@ -140,7 +149,15 @@ namespace WebBanHang.Controllers
             return View(taiKhoan);
             */
             var result = await _userManager.FindByIdAsync(id);
-            var _user = new User { Id = result.Id, UserName = result.UserName, Email = result.Email , Password = result.Password};
+            var _user = new User
+            {
+                Id = result.Id,
+                UserName = result.UserName,
+                Email = result.Email,
+                Password = result.Password,
+                PhoneNumber = result.PhoneNumber,
+                Enable2FA = result.TwoFactorEnabled
+            };
             if (result == null)
             {
                 return NotFound();
@@ -155,7 +172,7 @@ namespace WebBanHang.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,UserName,Email,Password")] User user)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,UserName,Email,Password,PhoneNumber,Enable2FA")] User user)
         {
             if (id != user.Id)
             {
@@ -252,22 +269,24 @@ namespace WebBanHang.Controllers
             {
                 return NotFound();
             }
-            /*
-            var taiKhoan = await _context.TaiKhoans
-                .FirstOrDefaultAsync(m => m.MaTK == id);
-            if (taiKhoan == null)
-            {
-                return NotFound();
-            }
 
-            return View(taiKhoan);
-            */
             var result = await _userManager.FindByIdAsync(id);
-            var _user = new User { Id = result.Id, UserName = result.UserName, Email = result.Email , Password = result.Password};
+
             if (result == null)
             {
                 return NotFound();
             }
+
+            var _user = new User
+            {
+                Id = result.Id,
+                UserName = result.UserName,
+                Email = result.Email ,
+                Password = result.Password,
+                PhoneNumber = result.PhoneNumber,
+                Enable2FA = result.TwoFactorEnabled
+            };
+
 
             return View(_user);
         }
@@ -277,12 +296,6 @@ namespace WebBanHang.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            /*
-            var taiKhoan = await _context.TaiKhoans.FindAsync(id);
-            _context.TaiKhoans.Remove(taiKhoan);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-            */
 
             var user = await _userManager.FindByIdAsync(id);
             var result = await _userManager.DeleteAsync(user);

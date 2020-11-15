@@ -2,14 +2,18 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head >
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    @RenderSection("metasocials", required: false)
+
     <meta name="description" content="Free Bootstrap Themes by 365Bootstrap dot com - Free Responsive Html5 Templates">
     <meta name="author" content="http://www.365bootstrap.com">
 
-    <title>Laptop Shop - Nhóm 13</title>
+
+    <title>@ViewData["Title"]</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
@@ -102,7 +106,7 @@
             </div>
             <div class="col-md-4">
                 <form class="form-search">
-                    <input type="text" class="input-medium search-query" id="txtSearch">
+                    <input type="text" class="input-medium search-query" name="query">
                     <button type="submit" class="btn" asp-action="Search" asp-controller="TrangChus"><span class="glyphicon glyphicon-search"></span></button>
                 </form>
             </div>

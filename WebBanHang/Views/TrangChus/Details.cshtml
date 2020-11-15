@@ -1,7 +1,7 @@
 ﻿@model WebBanHang.Models.HangHoa
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Model.TenHH;
     Layout = "~/Views/Shared/Layout_Sanpham.cshtml";
 }
 
@@ -13,7 +13,8 @@
                 <ul class="breadcrumb">
                     <li><a asp-action="Index">Trang chủ</a></li>
                     <li><a href="#">Loại</a></li>
-                    <li><a href="#">@Html.DisplayFor(modelItem => Model.Loai.TenLoai)</a></li>
+                    <li><a asp-action="Showsp" asp-route-maloai="@Model.MaLoai">@Html.DisplayFor(modelItem => Model.Loai.TenLoai)</a></li>
+                    <li><a asp-action="Details" asp-route-mahh="@Model.MaHH">@Html.DisplayFor(modelItem => Model.TenHH)</a></li>
                 </ul>
             </div>
         </div>
@@ -22,7 +23,7 @@
                 <div class="product">
                     <div class="col-md-6">
                         <div class="image">
-                            <img src="~/Hinh/@Model.Hinh" width="300" height="300" />
+                            <img src="~/Hinh/@Model.Hinh" width="300" height="300" alt="Details of @Model.TenHH"/>
 
                         </div>
                     </div>
@@ -35,7 +36,7 @@
                                     <li>ID: @Html.DisplayFor(modelItem => Model.MaHH)</li>
                                 </ul>
                             </div>
-                            <div class="price">@Html.DisplayFor(modelItem => Model.DonGia) đ<span>@Html.DisplayFor(modelItem => Model.GiamGia)%</span></div>
+                            <div class="price">@(Html.DisplayFor(modelItem => Model.DonGia))VND<span>@Html.DisplayFor(modelItem => Model.GiamGia)%</span></div>
                             <div class="options">
                                 TÙY CHỌN CÓ SẴN
                                 <select>
@@ -46,8 +47,8 @@
                             </div>
                             <div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
                             <div class="well">
-                                <label>Số lượng: </label> 
-                                <form asp-action="buydetail" asp-controller="cart">
+                                <label>Số lượng: </label>
+                                <form asp-action="buy-detail" asp-controller="cart" asp-route-id="@Model.MaHH">
                                     <input class="form-inline quantity" name="soluong" type="number" value="1">
                                     <button type="submit" class="btn btn-2">ADD</button>
                                 </form>
@@ -63,7 +64,7 @@
                                         return false;
                                     }
                                 </script>
-                                <a href="http://www.facebook.com/share.php?u=<url>" onclick="return fbs_click()" class="share-btn"  target="_blank">
+                                <a href="http://www.facebook.com/share.php?u=<url>" onclick="return fbs_click()" class="share-btn" target="_blank">
                                     <i class="fa fa-facebook"></i>
                                 </a>
 
@@ -118,7 +119,7 @@
                             <div class="col-lg-4 col-md-4 col-xs-12">
                                 <div class="product">
                                     <div class="image">
-                                        <a asp-action="Details" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="200" height="200" /></a>
+                                        <a asp-action="Details" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="200" height="200" alt="Sản phẩm liên quan @item.TenHH"/></a>
                                     </div>
 
 
@@ -135,15 +136,15 @@
                                 </div>
                             </div>
                         }
-                        
+
 
                     </div>
-                    
+
                     <div class="clear"></div>
                 </div>
             </div>
 
-           
+
 
 
             <div id="sidebar" class="col-md-4">
@@ -151,17 +152,17 @@
                     <div class="heading"><h4>LOẠI</h4></div>
                     <div class="content">
                         <ul>
-                           
-                                @foreach (var item in ViewBag.model)
-                                {
+
+                            @foreach (var item in ViewBag.model)
+                            {
 
 
-                            <li> <a asp-action="Showsp" asp-route-maloai="@item.MaLoai"> @item.TenLoai</a></li>
+                                <li> <a asp-action="Showsp" asp-route-maloai="@item.MaLoai"> @item.TenLoai</a></li>
 
 
 
-                                }
-                           
+                            }
+
                         </ul>
                     </div>
                 </div>
@@ -213,7 +214,7 @@
                             {
 
                                 <div class="image">
-                                    <a asp-action="Details" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="150" height="150" /></a>
+                                    <a asp-action="Details" asp-route-mahh="@item.MaHH"> <img src="~/Hinh/@item.Hinh" width="150" height="150" alt="Sản phẩm cũ @item.TenHH"/></a>
                                 </div>
 
 
@@ -229,10 +230,18 @@
                                 </div>
                             }
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>	
+</div>
+
+@section metasocials{
+    <meta property="og:url" content="@Context.Request.Scheme://@Context.Request.Host@Context.Request.Path" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Laptop @Model.TenHH" />
+    <meta property="og:description" content="@Model.MoTa" />
+    <meta property="og:image" content="@Context.Request.Scheme://@Context.Request.Host/Hinh/@Model.Hinh" />
+}

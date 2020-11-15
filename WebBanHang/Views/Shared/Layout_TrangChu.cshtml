@@ -13,7 +13,7 @@
     <meta name="description" content="Free Bootstrap Themes by 365Bootstrap dot com - Free Responsive Html5 Templates">
     <meta name="author" content="http://www.365bootstrap.com">
 
-    <title>Laptop Shop - Nhóm 13</title>
+    <title>@ViewData["Title"]</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="~/css/bootstrap.min.css" type="text/css">
@@ -102,11 +102,11 @@
     <header class="container">
         <div class="row">
             <div class="col-md-4">
-                <div id="logo"><img style="height:60px" src="~/images/laptopshop.png" /></div>
+                <div id="logo"><img style="height:60px" src="~/images/laptopshop.png" alt="Logo of laptop shop"/></div>
             </div>
             <div class="col-md-4">
                 <form class="form-search">
-                    <input type="text" class="input-medium search-query" name="Keyword">
+                    <input type="text" class="input-medium search-query" name="query">
                     <button asp-action="Search" asp-controller="TrangChus" type="submit" class="btn"><span class="glyphicon glyphicon-search"></span></button>
                 </form>
             </div>
@@ -185,7 +185,7 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="~/images/MSI_Banner.jpg" alt="First slide">
+                                <img src="~/images/MSI_Banner.jpg" alt="First slide" />
                                 <!-- Static Header -->
                                 <div class="header-text hidden-xs">
                                     <div class="col-md-12 text-center">
@@ -222,13 +222,13 @@
             <div class="row">
                 <div class="banner">
                     <div class="col-sm-4">
-                        <img src="images/sub1.jpg" />
+                        <img src="images/sub1.jpg" alt="First banner"/>
                     </div>
                     <div class="col-sm-4">
-                        <img src="~/images/sub2.jpg" />
+                        <img src="~/images/sub2.jpg" alt="Second banner"/>
                     </div>
                     <div class="col-sm-4">
-                        <img src="~/images/sub3.jpg" />
+                        <img src="~/images/sub3.jpg" alt="Third banner"/>
                     </div>
                 </div>
             </div>
@@ -241,7 +241,7 @@
             <div class="wrap-footer">
                 <div class="row">
                     <div class="col-md-3 col-footer footer-1">
-                        <img src="~/images/laptopshop.png" />
+                        <img src="~/images/laptopshop.png" alt="Logo Laptop shop"/>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     </div>
                     <div class="col-md-3 col-footer footer-2">
@@ -282,10 +282,10 @@
                     <div class="col-md-6">
                         <div class="pull-right">
                             <ul>
-                                <li><img src="images/visa-curved-32px.png" /></li>
-                                <li><img src="images/paypal-curved-32px.png" /></li>
-                                <li><img src="images/discover-curved-32px.png" /></li>
-                                <li><img src="images/maestro-curved-32px.png" /></li>
+                                <li><img src="images/visa-curved-32px.png" alt="Visa icon"/></li>
+                                <li><img src="images/paypal-curved-32px.png" alt="Paypal icon"/></li>
+                                <li><img src="images/discover-curved-32px.png" alt="Discover icon"/></li>
+                                <li><img src="images/maestro-curved-32px.png" alt="Maestro icon"/></li>
                             </ul>
                         </div>
                     </div>

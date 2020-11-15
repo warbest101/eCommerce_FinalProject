@@ -35,7 +35,7 @@ namespace WebBanHang.Controllers
         {
             if (!User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "TrangChus");
+                return RedirectToAction("Login", "TrangChus");
             }
             if (User.Identity.Name == admin)
             {
