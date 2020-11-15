@@ -9,462 +9,577 @@
 
 <url>
   <loc>http://www.laptopshop.somee.com/</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/dang-ky</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/dang-nhap</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/cart/index</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-loai-1-apple</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-loai-2-dell</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-loai-3-asus</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-loai-4-lenovo</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-loai-5-hp</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-loai-6-msi</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-loai-7-acer</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/gioi-thieu</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/dieu-khoan</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/chinh-sach</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/bai-viet</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/lien-he</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-85/msi-ps63-8mo-099vn</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-84/msi-gf75-9rcx</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-83/msi-ps42-8mo-250vn</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-82/msi-modern-14-a10m</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-1/apple-macbook-air-2017</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-8/apple-macbook-pro-touch-2019-i9</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-24/asus-gaming-rog-strix-g531</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-35/acer-switch-5-sw512-52p-34rs</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-37/acer-swift-7-sf714-52t-76c6</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-50/hp-palivion-15-cx0182tx</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-52/hp-elitebook-x360-14</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-66/dell-xps-13-9370</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-79/lenovo-legion-y530-15</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-1/msi-cong-bo-laptop-choi-game-alpha-15-dau-tien-trang-bi-cong-nghe-7nm</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-2/lenovo-yoga-s740-len-ke-the-gioi-di-dong-gia-khoi-diem-24-trieu</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-3/hp-15s-du0068tx-chiec-laptop-mong-nhe-cau-hinh-manh-me-voi-muc-gia-sieu-%E2%80%9Choi%E2%80%99%E2%80%99</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-4/lenovo-ra-mat-thinkbook-14-15-huong-den-doanh-nghiep-vua-va-nho</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-5/asus-gioi-thieu-series-laptop-x409-x509-nho-gon</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-6/ra-mat-hp-envy-phien-ban-go-tu-nhien</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-7/ra-mat-hp-pavilion-gaming-15-danh-cho-game-thu</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-8/dell-ket-hop-cung-marvel-studios-ra-mat-g-series</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-9/dell-ra-mat-dong-laptop-chuyen-game-g-series-gia-tu-23-trieu-dong</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-10/apple-%E2%80%98chia-tay%E2%80%99-intel-dung-chip-tu-san-xuat-cho-may-mac-tuong-lai</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-11/apple-mo-ban-macbook-pro-13-inch-hang-tan-trang-voi-gia-hop-ly</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-12/dell-ban-laptop-khong-bat-intel-management-engine</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-13/asus-zenbook-ux430-ra-mat-ban-mau-vang-gold-gia-tu-22-5-trieu-dong</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/bai-viet-14/lenovo-ra-mat-3-mau-laptop-di-dong-yoga-520-720-va-ideapad-320s-gia-tu-11-trieu</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-81/msi-gl63-8rcs-068vn</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-80/msi-gaming-15-gf63-9sc</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-7/apple-macbook-pro-touch-2019-i7</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-6/apple-macbook-pro-touch-2018</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-5/apple-macbook-pro-touch-2019-i5-256gb</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-4/apple-macbook-pro-touch-2019-i5-128gb</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>http://www.laptopshop.somee.com/laptop-id-3/apple-macbook-air-2018</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-2/apple-macbook-air-2019</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-23/asus-zenbook-13-ux333fn</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-6/apple-macbook-pro-touch-2018</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-22/asus-gaming-fx505ge</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-4/apple-macbook-pro-touch-2019-i5-128gb</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-21/asus-zenbook-14-ux433fa</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-5/apple-macbook-pro-touch-2019-i5-256gb</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-20/asus-gaming-tuf-fx505d-r7</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-7/apple-macbook-pro-touch-2019-i7</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-19/asus-vivobook-x407ub</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-9/asus-vivobook-x507ma</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-10/asus-vivobook-x441ma</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-11/asus-vivobook-x407ua</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-12/asus-vivobook-14-x407ua</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-13/asus-vivobook-x507ua</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-38/acer-nitro-an515-54-52ez</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-36/acer-swit-5-sf514-53t-740r</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-34/acer-swift-3-sf314-54-51ql</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-33/acer-spin-3-sp314-51-39wk</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-25/acer-aspire-a315-34-c2h9</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-26/acer-aspire-3-a315-54k-30fk</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-27/acer-aspire-3-a315-42-r2ns-r3</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-28/acer-aspire-a315-54-3501</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-29/acer-swift-1-sf114-32-p2sg</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-51/hp-elitebook-x360-1030-g3</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-49/hp-envy-13-aq0027tu</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-48/hp-envy-x360-ar0071au-r5</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-47/hp-envy-13-ah1011tu</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-39/hp-15-da0359tu-n4417</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-40/hp-14-ck0068tu</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-41/hp-348-g5</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-42/hp-pavilon-14-ce2035tu</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-43/hp-pavilion-x360-ad104tu</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-65/dell-xps-13-7390</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-60/dell-inspiron-13-5370</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-64/dell-inspiron-15-5584</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-63/dell-vostro-5581</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-62/dell-inspiron-5593</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-61/dell-vostro-3580</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-53/dell-vostro-3568</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-54/dell-inspiron-3576</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-55/dell-vostro-14-3481</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-56/dell-inspiron-3581</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-58/dell-inspiron-5593</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-62/dell-inspiron-5593</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-59/dell-vostro-14-3480</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-55/dell-vostro-14-3481</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-53/dell-vostro-3568</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-57/dell-vostro-3580</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-78/lenovo-yoga-s730-13iwl</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-61/dell-vostro-3580</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-77/lenovo-yoga-s740-14iil</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-63/dell-vostro-5581</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-76/lenovo-ideapad-330-15</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-65/dell-xps-13-7390</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-75/lenovo-ideapad-l340-15irh</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-22/asus-gaming-fx505ge</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-74/lenovo-ideapad-530s-14ikb</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-20/asus-gaming-tuf-fx505d-r7</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-12/asus-vivobook-14-x407ua</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-16/asus-vivobook-a412fa</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-18/asus-vivobook-a512fa</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-17/asus-vivobook-s430fa</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-11/asus-vivobook-x407ua</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-19/asus-vivobook-x407ub</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-10/asus-vivobook-x441ma</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-9/asus-vivobook-x507ma</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-13/asus-vivobook-x507ua</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-14/asus-vivobook-x507uf</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-15/asus-vivobook-x509fj</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-23/asus-zenbook-13-ux333fn</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-21/asus-zenbook-14-ux433fa</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-67/lenovo-ideapad-330-14ikb</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-68/lenovo-yoga-520-14ikb</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-76/lenovo-ideapad-330-15</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-69/lenovo-ideapad-s340-14iwl</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://www.laptopshop.somee.com/laptop-id-70/lenovo-ideapad-yoga-530-14ikb</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <loc>http://www.laptopshop.somee.com/laptop-id-74/lenovo-ideapad-530s-14ikb</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>http://www.laptopshop.somee.com/laptop-id-71/lenovo-ideapad-c340-14iwl</loc>
-  <lastmod>2020-11-15T12:18:35+00:00</lastmod>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-75/lenovo-ideapad-l340-15irh</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-73/lenovo-ideapad-s145-15iwl</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-72/lenovo-ideapad-s340-14iil</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-69/lenovo-ideapad-s340-14iwl</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-70/lenovo-ideapad-yoga-530-14ikb</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-68/lenovo-yoga-520-14ikb</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-78/lenovo-yoga-s730-13iwl</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-77/lenovo-yoga-s740-14iil</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-40/hp-14-ck0068tu</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-39/hp-15-da0359tu-n4417</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-41/hp-348-g5</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-51/hp-elitebook-x360-1030-g3</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-47/hp-envy-13-ah1011tu</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-49/hp-envy-13-aq0027tu</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-48/hp-envy-x360-ar0071au-r5</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-44/hp-pavilion-15-cs2032tu</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-43/hp-pavilion-x360-ad104tu</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-42/hp-pavilon-14-ce2035tu</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-45/hp-probook-13</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-46/hp-probook-430-g6</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-80/msi-gaming-15-gf63-9sc</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-81/msi-gl63-8rcs-068vn</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-27/acer-aspire-3-a315-42-r2ns-r3</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-26/acer-aspire-3-a315-54k-30fk</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-25/acer-aspire-a315-34-c2h9</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-28/acer-aspire-a315-54-3501</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-31/acer-aspire-a315-54-36qy</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-32/acer-aspire-a514-52-33ab</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-38/acer-nitro-an515-54-52ez</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-33/acer-spin-3-sp314-51-39wk</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-29/acer-swift-1-sf114-32-p2sg</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-34/acer-swift-3-sf314-54-51ql</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-30/acer-swift-sf114-32-p8ts</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/laptop-id-36/acer-swit-5-sf514-53t-740r</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-1/msi-cong-bo-laptop-choi-game-alpha-15-dau-tien-trang-bi-cong-nghe-7nm</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-2/lenovo-yoga-s740-len-ke-the-gioi-di-dong-gia-khoi-diem-24-trieu</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-3/hp-15s-du0068tx-chiec-laptop-mong-nhe-cau-hinh-manh-me-voi-muc-gia-sieu-%E2%80%9Choi%E2%80%99%E2%80%99</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-4/lenovo-ra-mat-thinkbook-14-15-huong-den-doanh-nghiep-vua-va-nho</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-5/asus-gioi-thieu-series-laptop-x409-x509-nho-gon</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-6/ra-mat-hp-envy-phien-ban-go-tu-nhien</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-7/ra-mat-hp-pavilion-gaming-15-danh-cho-game-thu</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-8/dell-ket-hop-cung-marvel-studios-ra-mat-g-series</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-9/dell-ra-mat-dong-laptop-chuyen-game-g-series-gia-tu-23-trieu-dong</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-10/apple-%E2%80%98chia-tay%E2%80%99-intel-dung-chip-tu-san-xuat-cho-may-mac-tuong-lai</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-11/apple-mo-ban-macbook-pro-13-inch-hang-tan-trang-voi-gia-hop-ly</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-12/dell-ban-laptop-khong-bat-intel-management-engine</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-13/asus-zenbook-ux430-ra-mat-ban-mau-vang-gold-gia-tu-22-5-trieu-dong</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.laptopshop.somee.com/bai-viet-14/lenovo-ra-mat-3-mau-laptop-di-dong-yoga-520-720-va-ideapad-320s-gia-tu-11-trieu</loc>
+  <lastmod>2020-11-15T16:13:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 

@@ -119,7 +119,7 @@ namespace WebBanHang.Controllers
                 return NotFound();
             }
 
-            var hangHoas = _context.HangHoas
+            var hangHoas = _context.HangHoas.Include(p => p.Loai)
                 .Where(m => m.MaLoai == maloai).AsNoTracking().OrderBy(p => p.TenHH);
 
             var loai = await _context.loais.FirstOrDefaultAsync(m => m.MaLoai == maloai);
