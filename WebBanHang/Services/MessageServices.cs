@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,16 @@ namespace WebBanHang.Services
 {
     public class AuthMessageSender : IEmailSender, ISmsSender
     {
-        public AuthMessageSender(IOptions<SMSoptions> optionsAccessor)
+        private readonly string _accountSid;
+        private readonly string _authToken;
+        private readonly string _sMSAccountFrom;
+
+        public AuthMessageSender(/*IOptions<SMSoptions> optionsAccessor,*/IConfiguration config)
         {
-            Options = optionsAccessor.Value;
+            //Options = optionsAccessor.Value;
+            _accountSid = config["TwilioSettings:SMSAccountIdentification"];
+            _authToken = config["TwilioSettings:SMSAccountPassword"];
+            _sMSAccountFrom = config["TwilioSettings:SMSAccountFrom"];
         }
 
         public SMSoptions Options { get; }  // set only via Secret Manager
@@ -28,16 +36,26 @@ namespace WebBanHang.Services
         {
             // Plug in your SMS service here to send a text message.
             // Your Account SID from twilio.com/console
-            var accountSid = Options.SMSAccountIdentification;
+            //var accountSid = Options.SMSAccountIdentification;
             // Your Auth Token from twilio.com/console
-            var authToken = Options.SMSAccountPassword;
+            //var authToken = Options.SMSAccountPassword;
 
-            TwilioClient.Init(accountSid, authToken);
+            //TwilioClient.SetUsername(accountSid);
+            //TwilioClient.SetPassword(authToken);
+            //TwilioClient.Init(accountSid, authToken);
 
+            TwilioClient.Init(_accountSid, _authToken);
+
+            return MessageResource.CreateAsync(
+              to: new PhoneNumber("+84" + number),
+              from: new PhoneNumber(_sMSAccountFrom),
+              body: message);
+            /*
             return MessageResource.CreateAsync(
               to: new PhoneNumber("+84" + number),
               from: new PhoneNumber(Options.SMSAccountFrom),
               body: message);
+            */
         }
     }
 }

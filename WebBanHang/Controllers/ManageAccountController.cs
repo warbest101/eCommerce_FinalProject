@@ -70,7 +70,7 @@ namespace WebBanHang.Controllers
 
             if (ModelState.IsValid)
             {
-                var user = await _userManager.GetUserAsync(HttpContext.User);
+                var user = await _userManager.FindByNameAsync(User.Identity.Name);
                 if (user == null)
                 {
                     return NotFound();
@@ -89,13 +89,15 @@ namespace WebBanHang.Controllers
             var modelLoai = _context.loais.ToList();
             ViewBag.model = modelLoai;
 
-            var user = await _userManager.GetUserAsync(HttpContext.User);
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
             if (user == null)
             {
                 return NotFound();
             }
             var code = await _userManager.GenerateChangePhoneNumberTokenAsync(user, phoneNumber);
-            return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
+            return phoneNumber == null 
+                ? View("ManageAccount") :
+                View("VerifyPhoneNumber", new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
         }
 
         [HttpPost]
@@ -107,7 +109,7 @@ namespace WebBanHang.Controllers
 
             if (ModelState.IsValid)
             {
-                var user = await _userManager.GetUserAsync(HttpContext.User);
+                var user = await _userManager.FindByNameAsync(User.Identity.Name);
                 if (user == null)
                 {
                     return NotFound();
@@ -132,7 +134,7 @@ namespace WebBanHang.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemovePhoneNumber()
         {
-            var user = await _userManager.GetUserAsync(HttpContext.User);
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
             if (user != null)
             {
                 var result = await _userManager.SetPhoneNumberAsync(user, null);
@@ -149,7 +151,7 @@ namespace WebBanHang.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EnableTwoFactorAuthentication()
         {
-            var user = await _userManager.GetUserAsync(HttpContext.User);
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
             if (user != null)
             {
 
@@ -168,7 +170,7 @@ namespace WebBanHang.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DisableTwoFactorAuthentication()
         {
-            var user = await _userManager.GetUserAsync(HttpContext.User);
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
             if (user != null)
             {
                 await _userManager.SetTwoFactorEnabledAsync(user, false);
@@ -195,7 +197,7 @@ namespace WebBanHang.Controllers
 
             if (ModelState.IsValid)
             {
-                var user = await _userManager.GetUserAsync(HttpContext.User);
+                var user = await _userManager.FindByNameAsync(User.Identity.Name);
                 if (user != null)
                 {
                     var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
