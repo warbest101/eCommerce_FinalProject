@@ -1,0 +1,65 @@
+﻿@model MailChimp.Net.Models.Member
+@{
+    ViewData["Title"] = "Subscribe";
+    Layout = "~/Views/Shared/Layout_3.cshtml";
+}
+
+
+
+<div id="page-content" class="single-page">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="heading"><h2>Subscribe</h2></div>
+                <form asp-action="Subscribe">
+
+                    <div class="form-group">
+                        <label asp-for="EmailAddress" class="control-label">Email Address</label>
+                        <input asp-for="EmailAddress" class="form-control" required />
+                        <div class="text-danger"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">First Name</label>
+                        <input name="fname" class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Last Name</label>
+                        <input name="lname" class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Address</label>
+                        <input name="addr1" class="form-control" placeholder="Address 1" />
+                        <input name="addr2" class="form-control" placeholder="Address 2" />
+                        <input name="city" class="form-control" placeholder="City" />
+                        <input name="state" class="form-control" placeholder="State/Prov/Region" />
+                        <input name="zip" class="form-control" placeholder="Postal/Zip" />
+                        <select name="country" class="form-control">
+                            <option value="US">USA</option>
+                            <option value="VN">Việt Nam</option>
+                        </select>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Phone Number</label>
+                        <input name="phone" class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Birthday</label>
+                        <div class="form-group-sm">
+                            <input name="birth_month" style="width:40px; height:30px" maxlength="2" /> /
+                            <input name="birth_date" style="width:40px; height:30px" maxlength="2" />
+                        </div>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <button type="submit" class="btn btn-1">Subscribe</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

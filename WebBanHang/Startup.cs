@@ -148,9 +148,25 @@ namespace WebBanHang
                 );
 
                 routes.MapRoute(
+                    name: "sendcode",
+                    template: "send-code",
+                    defaults: new { controller = "TrangChus", action = "SendCode" }
+                );
+                routes.MapRoute(
+                    name: "verifycode",
+                    template: "verify-code",
+                    defaults: new { controller = "TrangChus", action = "VerifyCode" }
+                );
+
+                routes.MapRoute(
                     name: "dangky",
                     template: "dang-ky",
                     defaults: new { controller = "TrangChus", action = "Create" }
+                );
+                routes.MapRoute(
+                    name: "subscribe",
+                    template: "subscribe",
+                    defaults: new { controller = "TrangChus", action = "Subscribe" }
                 );
 
                 routes.MapRoute(

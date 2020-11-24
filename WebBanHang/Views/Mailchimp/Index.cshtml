@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Components/_AdminPage.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a> |
+    <a asp-action="ExportAllMember">Export All Member</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Email
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.model)
+        {
+        <tr>
+            <td>
+                @item.EmailAddress
+            </td>
+            <td>
+                @item.MergeFields["FNAME"]
+            </td>
+            <td>
+                @item.MergeFields["LNAME"]
+            </td>
+            <td>
+                @item.Status
+            </td>
+            <td><a asp-action="ExportMember" asp-route-id="@item.EmailAddress">Export</a> |
+                <a asp-action="Details" asp-route-id="@item.EmailAddress">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EmailAddress">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using MailChimp.Net;
+using MailChimp.Net.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using WebBanHang.Models;
 using WebBanHang.Services;
 using WebBanHang.ViewModels;
@@ -20,18 +24,27 @@ namespace WebBanHang.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
 
+        //Mailchimp
+        private readonly string _apiKey;
+        private readonly string _listId;
+
         public ManageAccountController(
             MyDBContext context,
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
             IEmailSender emailSender,
-            ISmsSender smsSender)
+            ISmsSender smsSender,
+            IConfiguration config)
         {
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _smsSender = smsSender;
+
+            //Mailchimp
+            _apiKey = config["MailchimpSettings:ApiKey"];
+            _listId = config["MailchimpSettings:ListId"];
         }
 
         public IActionResult Index()
@@ -49,6 +62,13 @@ namespace WebBanHang.Controllers
             }
 
             var result = await _userManager.FindByNameAsync(User.Identity.Name);
+            if(result == null)
+            {
+                return NotFound();
+            }
+            IMailChimpManager mailChimpManager = new MailChimpManager(_apiKey);
+            var members = await mailChimpManager.Members.GetAllAsync(_listId).ConfigureAwait(false);
+            ViewBag.Member = members.FirstOrDefault(p => p.EmailAddress == result.Email);
 
             return View(result);
         }
@@ -217,6 +237,19 @@ namespace WebBanHang.Controllers
             }
 
             return RedirectToAction(nameof(ManageAccount));
+        }
+
+
+        public async Task<IActionResult> ExportMember(string id)
+        {
+            IMailChimpManager mailChimpManager = new MailChimpManager(_apiKey);
+            var members = await mailChimpManager.Members.GetAllAsync(_listId).ConfigureAwait(false);
+            var member = members.FirstOrDefault(p => p.EmailAddress == id);
+            var csvName = "member_" + DateTime.UtcNow.Ticks + ".csv";
+            var builder = new StringBuilder();
+            builder.AppendLine("Email Address,First Name, Last Name");
+            builder.AppendLine($"{member.EmailAddress},{member.MergeFields["FNAME"].ToString()},{member.MergeFields["LNAME"].ToString()}");
+            return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", csvName);
         }
     }
 

@@ -61,8 +61,21 @@
                                 <div>Please add your phone number before enable two-factor authentication</div>
                             }
                         }
-                    </dd>
 
+                    </dd>
+                    <dt>
+                        Subscribed:
+                    </dt>
+                    <dd>
+                        @if (ViewBag.member == null)
+                        {
+                            <a class="btn-link btn-bracketed" asp-action="Subscribe" asp-controller="TrangChus">[Subscribe for more Products]</a>
+                        }
+                        else
+                        {
+                            <a class="btn-link btn-bracketed" asp-action="ExportMember" asp-controller="ManageAccount" asp-route-id="@ViewBag.member.EmailAddress">[Export Email User]</a>
+                        }
+                    </dd>
                 </dl>
 
             </div>

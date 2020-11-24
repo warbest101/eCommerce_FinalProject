@@ -70,6 +70,11 @@
                 <div class="col-xs-6">
                     <ul class="top-link">
                         <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a asp-controller="TrangChus" asp-action="Subscribe">
+                                    Subscribe for more Products
+                                </a>
+                            </li>
                             @if (!User.Identity.IsAuthenticated)
                             {
                                 <li>
@@ -87,7 +92,7 @@
                             {
                                 <li>
                                     <a asp-controller="AdMin" asp-action="Profile">
-                                        Xin chào, 
+                                        Xin chào,
                                         <b>@User.Identity.Name</b>
                                     </a>
                                 </li>

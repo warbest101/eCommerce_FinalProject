@@ -16,6 +16,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WebBanHang.FriendlyUrl;
+using MailChimp.Net.Models;
+using MailChimp.Net.Interfaces;
+using MailChimp.Net.Core;
+using Contact = WebBanHang.Models.Contact;
+using MailChimp.Net;
+using Microsoft.Extensions.Configuration;
 
 namespace WebBanHang.Controllers
 {
@@ -28,13 +34,18 @@ namespace WebBanHang.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
 
+        //Mailchimp
+        private readonly string _apiKey;
+        private readonly string _listId;
+
         public TrangChusController(
             MyDBContext context,
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
             RoleManager<IdentityRole> roleManager,
             IEmailSender emailSender, 
-            ISmsSender smsSender)
+            ISmsSender smsSender,
+            IConfiguration config)
         {
             _context = context;
             _userManager = userManager;
@@ -42,6 +53,10 @@ namespace WebBanHang.Controllers
             _roleManager = roleManager;
             _emailSender = emailSender;
             _smsSender = smsSender;
+
+            //Mailchimp
+            _apiKey = config["MailchimpSettings:ApiKey"];
+            _listId = config["MailchimpSettings:ListId"];
         }
 
         public async Task<IActionResult> Index(int page=1)
@@ -377,18 +392,25 @@ namespace WebBanHang.Controllers
                 var _user = new AppUser { UserName = user.UserName, Email = user.Email, Password = user.Password };
                 var result = await _userManager.CreateAsync(_user, user.Password);
 
-                if (result.Succeeded)
+                var check = await _userManager.FindByEmailAsync(_user.Email);
+                if(check == null)
                 {
-
-
-                    await _signInManager.SignInAsync(_user, isPersistent: false);
-                    return RedirectToAction(nameof(Index));
+                    if (result.Succeeded)
+                    {
+                        await _signInManager.SignInAsync(_user, isPersistent: false);
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        foreach (IdentityError error in result.Errors)
+                            ModelState.AddModelError("", error.Description);
+                    }
                 }
                 else
                 {
-                    foreach (IdentityError error in result.Errors)
-                        ModelState.AddModelError("", error.Description);
+                    ModelState.AddModelError("", "Email already exist");
                 }
+
 
             }
             
@@ -482,6 +504,126 @@ namespace WebBanHang.Controllers
             }
         }
 
+        [Authorize]
+        public async Task<IActionResult> Subscribe()
+        {
+            var model = _context.loais.ToList();
+            ViewBag.model = model;
+            var _user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if(_user == null)
+            {
+                return NotFound();
+            }
+            
+            return View(new Member{ EmailAddress = _user.Email });
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> Subscribe(
+            Member models,
+            string fname = "",
+            string lname = "",
+            string addr1 = "",
+            string addr2 = "",
+            string city = "",
+            string state = "",
+            string zip = "",
+            string country = "US",
+            string phone = "",
+            string birth_month = "",
+            string birth_date = "")
+        {
+            var model = _context.loais.ToList();
+            ViewBag.model = model;
+
+            var checkErr = false;
+
+            IMailChimpManager mailChimpManager = new MailChimpManager(_apiKey);
+
+            var member = new Member
+            {
+                EmailAddress = models.EmailAddress,
+            };
+
+            var members = await mailChimpManager.Members.GetAllAsync(_listId).ConfigureAwait(false);
+            var check = members.FirstOrDefault(x => x.EmailAddress == member.EmailAddress);
+            if (!string.IsNullOrEmpty(fname)) member.MergeFields.Add("FNAME", fname);
+            if (!string.IsNullOrEmpty(lname)) member.MergeFields.Add("LNAME", lname);
+            if (!string.IsNullOrEmpty(addr1)
+                && !string.IsNullOrEmpty(addr2)
+                && !string.IsNullOrEmpty(city)
+                && !string.IsNullOrEmpty(state)
+                && !string.IsNullOrEmpty(zip)
+                && !string.IsNullOrEmpty(country))
+            {
+                var address = new Dictionary<string, object>
+                {
+                    {"addr1", addr1 },
+                    {"addr2", addr2 },
+                    {"city", city },
+                    {"state", state },
+                    {"zip", zip },
+                    {"country", country }
+                };
+
+                member.MergeFields.Add("ADDRESS", address);
+            }
+            if (!string.IsNullOrEmpty(phone))
+            {
+                var isNumeric = int.TryParse(phone, out _);
+                if (!isNumeric)
+                {
+                    checkErr = true;
+                    ModelState.AddModelError("", "Phone number must be numeric");
+                }
+                member.MergeFields.Add("PHONE", phone);
+            }
+            if (!string.IsNullOrEmpty(birth_month) && !string.IsNullOrEmpty(birth_month))
+            {
+                var numericMonth = int.TryParse(birth_month, out _);
+                var numericDate = int.TryParse(birth_date, out _);
+                if (!numericDate || !numericMonth)
+                {
+                    checkErr = true;
+                    ModelState.AddModelError("", "Date and Month must be numeric");
+                }
+                var birthday = birth_month + "/" + birth_date;
+                member.MergeFields.Add("BIRTHDAY", birthday);
+            }
+
+            if (checkErr == false)
+            {
+                if (ModelState.IsValid)
+                {
+                    if (check == null)
+                    {
+                        member.Status = Status.Pending;
+
+                        try
+                        {
+                            await mailChimpManager.Members.AddOrUpdateAsync(_listId, member);
+                            return RedirectToAction(nameof(SubscribeSuccess));
+                        }
+                        catch (MailChimpException mce)
+                        {
+                            ModelState.AddModelError("", mce.Message);
+                        }
+                    }
+                    ModelState.AddModelError("", "Email already exists . Please choose another email.");
+                }
+            }
+
+            return View(models);
+
+        }
+
+        public IActionResult SubscribeSuccess()
+        {
+            var model = _context.loais.ToList();
+            ViewBag.model = model;
+            return View();
+        }
     }
 }

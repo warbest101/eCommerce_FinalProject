@@ -1,0 +1,86 @@
+﻿@model MailChimp.Net.Models.Member
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/Components/_AdminPage.cshtml";
+}
+
+<h4>Add Member</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmailAddress" class="control-label"></label>
+                <input asp-for="EmailAddress" class="form-control" />
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">First Name</label>
+                <input name="fname" class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Last Name</label>
+                <input name="lname" class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Address 1</label>
+                <input name="addr1" class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Address 2</label>
+                <input name="addr2" class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">City</label>
+                <input name="city" class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">State/Prov/Region</label>
+                <input name="state" class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Postal/Zip</label>
+                <input name="zip" class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Country</label>
+                <select name="country">
+                    <option value="US">USA</option>
+                    <option value="VN">Việt Nam</option>
+                </select>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Phone Number</label>
+                <input name="phone" class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Birthday</label>
+                <div class="form-group-sm">
+                    <input name="birth_month" style="width:40px" maxlength="2"/> / 
+                    <input name="birth_date" style="width:40px" maxlength="2"/>
+                </div>
+                
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,122 @@
+﻿@model MailChimp.Net.Models.Member
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/Components/_AdminPage.cshtml";
+}
+
+<h2>Delete Member</h2>
+
+<div>
+    <h4>Member</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            Email Address
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+        <dt>
+            First Name
+        </dt>
+        @if (Model.MergeFields["FNAME"].ToString() == "")
+        {
+            <dd>
+                None
+            </dd>
+        }
+        else
+        {
+            <dd>
+                @Model.MergeFields["FNAME"]
+            </dd>
+        }
+        <dt>
+            Last Name
+        </dt>
+        @if (Model.MergeFields["LNAME"].ToString() == "")
+        {
+            <dd>
+                None
+            </dd>
+        }
+        else
+        {
+            <dd>
+                @Model.MergeFields["LNAME"]
+            </dd>
+        }
+        <dt>
+            Address
+        </dt>
+        @if (Model.MergeFields["ADDRESS"].ToString() == "")
+        {
+            <dd>
+                None
+            </dd>
+        }
+        else
+        {
+            <dd>
+                @Model.MergeFields["ADDRESS"]
+            </dd>
+        }
+        <dt>
+            Phone Number
+        </dt>
+        @if (Model.MergeFields["PHONE"].ToString() == "")
+        {
+            <dd>
+                None
+            </dd>
+        }
+        else
+        {
+            <dd>
+                @Model.MergeFields["PHONE"]
+            </dd>
+        }
+        <dt>
+            Birthday
+        </dt>
+        @if (Model.MergeFields["BIRTHDAY"].ToString() == "")
+        {
+            <dd>
+                None
+            </dd>
+        }
+        else
+        {
+            <dd>
+                @Model.MergeFields["BIRTHDAY"]
+            </dd>
+        }
+        <dt>
+            Member rating
+        </dt>
+        <dd>
+            @Model.MemberRating
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+</div>
+<div>
+    <form asp-action="Delete">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="EmailAddress" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
